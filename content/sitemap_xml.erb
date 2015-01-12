@@ -1,0 +1,7 @@
+---
+is_hidden: true
+is_dynamic: true
+---
+<%= xml_sitemap :items => @items.reject{ |i|
+  i[:is_hidden] || ['css', 'js', 'jpeg', 'png'].include?(i[:extension]) || i.binary? }
+%>
