@@ -118,6 +118,18 @@ a.fancybox {
   text-align: right;
 }
 
+.feed-link {
+  display: inline-block;
+}
+
+.feed-link img {
+  width: 25px;
+  height: 25px;
+  vertical-align: bottom;
+  position: relative;
+  bottom: 3px;
+}
+
 pre.pgp-key {
   background: inherit;
   border: none;
