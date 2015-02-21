@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Inconsolata;
+  src: url(Inconsolata.woff);
+}
+
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
@@ -5,7 +10,7 @@ html {
 }
 
 body {
-  font-family: 'Inconsolata', 'Courier New', monospace;
+  font-family: Inconsolata, 'Courier New', monospace;
   font-weight: normal;
   font-style: normal;
   font-variant: normal;
