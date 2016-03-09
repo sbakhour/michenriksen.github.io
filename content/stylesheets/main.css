@@ -142,3 +142,14 @@ pre.pgp-key {
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
 }
+
+.screenshot {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 13px
+}
+
+.screenshot img {
+  width: 450px;
+}
