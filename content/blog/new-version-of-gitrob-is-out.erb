@@ -1,0 +1,162 @@
+---
+title: "A new version of Gitrob is out"
+kind: article
+created_at: 2016-03-12 13:37:00 UTC
+---
+
+<%= render '/post_head.html', :post => item %>
+
+<p>It's been more than a year since I released the initial version of Gitrob.
+I haven't had a whole lot of time to expand on it, but now a new and
+improved version is finally here with a bunch of new features requested by
+users.</p>
+
+<p>For those who don't know, Gitrob is a command line tool which can help
+organizations and security professionals find sensitive information lingering in
+publicly available files on GitHub. The tool will iterate over all public
+organization and member repositories and match filenames against a range of
+patterns for files that typically contain sensitive or dangerous information.
+Head over to <a href="/blog/gitrob-putting-the-open-source-in-osint/">my
+previous post</a> for more details and screenshots, but be sure to come back
+here to learn about the new features!</p>
+
+<p>The attention the tool has received has been way over my expectations and I
+want to thank everyone who has helped spread the word about it. With over 1100
+Stars on GitHub, a place in <a href="https://www.thoughtworks.com/radar/tools">
+ThoughtWorks' Tech Radar</a> and a mention in <a href="http://www.amazon.com/The-Hacker-Playbook-Practical-Penetration/dp/1512214566">The Hacker Playbook 2</a>, I will strive to maintain and build
+upon the tool more frequently from now on.</p>
+
+<h2>New features</h2>
+
+<h3>Analyze arbitrary amount of organizations and users</h3>
+<p>The old version of Gitrob only allowed to analyze a single GitHub organization
+at a time, but the new version allows to mix any number of organizations and
+users in a single assessment. This is great if a company has multiple
+organizations or if you have identified GitHub users who work for the target
+company but don't have their membership publicly visible.</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/gitrob_1_0_0/analyze.png"
+  title="Analyzing an organization and a user in one assessment">
+  <img class="thumbnail" src="/images/gitrob_1_0_0/analyze_thumbnail.png"
+  alt="" /></a>
+  <small>Analyzing an organization and a user in one assessment</small>
+</div>
+
+<h3>Create and delete assessments in web interface</h3>
+<p>The new version has an improved web application which allows users to run a
+new assessment directly from the web interface. This is very convenient if
+Gitrob runs on a server accessible to multiple users as they no longer require
+command line access to manage assessments.</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/gitrob_1_0_0/new_assessment.png"
+  title="Creating a new assessments from the web interface">
+  <img class="thumbnail" src="/images/gitrob_1_0_0/new_assessment_thumbnail.png"
+  alt="" /></a>
+  <small>Creating a new assessments from the web interface</small>
+</div>
+
+<h3>GitHub Enterprise support</h3>
+<p>The new version makes it possible to run Gitrob against custom GitHub
+Enterprise installations by simply providing the location when creating a new
+assessment. <strong>Note:</strong> I unfortunately don't have access to a
+GitHub Enterprise installation, so I would appreciate if anyone could verify if
+this works and report any bugs!</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/gitrob_1_0_0/new_assessment_enterprise.png"
+  title="Assessment against a custom GitHub Enterprise installatation">
+  <img class="thumbnail" src="/images/gitrob_1_0_0/new_assessment_enterprise_thumbnail.png"
+  alt="" /></a>
+  <small>Assessment against a custom GitHub Enterprise installation</small>
+</div>
+
+<h3>Compare assessments for continuous monitoring</h3>
+<p>In the old version it wasn't really easy to continuously monitor an
+organization, but the new version makes it possible to compare two assessments
+to quickly identify new or modified files, users and repositories.</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/gitrob_1_0_0/comparison.gif"
+  title="Comparing two assessments">
+  <img class="thumbnail" src="/images/gitrob_1_0_0/comparison_thumbnail.png"
+  alt="" /></a>
+  <small>Comparing two assessments</small>
+</div>
+
+<h3>Highlighting of interesting values and detection of test files</h3>
+<p>In the small improvements category, the new version detects and
+highlights interesting values such as IP addresses, domains, tokens and email
+addresses when viewing a file's content. The new version will also
+attempt to determine if a file is likely test or mock related and make
+them less visible so they can easily be skipped.</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/gitrob_1_0_0/highlighting.gif"
+  title="Highlighting of interesting values and dimming of test related files">
+  <img class="thumbnail" src="/images/gitrob_1_0_0/highlighting_thumbnail.png"
+  alt="" /></a>
+  <small>Highlighting of interesting values and dimming of test related files</small>
+</div>
+
+<h2>Under the hood</h2>
+<p>Apart from the new features, Gitrob v1.0.0 is pretty much a complete rewrite
+of the first version and some components have been switched out with better and
+more stable components. Gitrob now uses <a href="https://rubygems.org/gems/sequel">sequel</a>
+for database communication, <a href="https://rubygems.org/gems/github_api">github_api</a>
+for GitHub API interaction and <a href="https://rubygems.org/gems/thor">thor</a>
+for the command line interface. The switch to thor also means that the interface
+is a little different from the old version. <code>gitrob -o acme</code> is now
+<code>gitrob analyze acme</code>.</p>
+
+<h2>New file signatures</h2>
+<p>The new version also ships with a bunch of new signatures for files that
+might contain sensitive information:</p>
+
+<ul>
+  <li>SSH configuration files <small>(Might contain usernames and SSH hostnames)</small></li>
+  <li>PostgreSQL password files <small>(Contains PostgreSQL database credentials)</small></li>
+  <li><a href="https://aws.amazon.com/cli/">AWS CLI</a> credential files
+  <small>(Contains Amazon Web Services credentials)</small></li>
+  <li><a href="http://dayoneapp.com/">Day One</a> journal files <small>(Might
+  contain sensitive and personal information)</small></li>
+  <li><a href="https://maebert.github.io/jrnl/">jrnl</a> journal files <small>
+  (Might contain sensitive and personal information)</small></li>
+  <li><a href="https://github.com/pearkes/tugboat">Tugboat</a> configuration
+  files <small>(Might contain <a href="https://www.digitalocean.com/">DigitalOcean</a>
+  credentials)</small></li>
+  <li><a href="https://git-scm.com/docs/git-credential-store">git-credential-store</a>
+  configuration files <small>(Contains Git credentials)</small></li>
+  <li>Git configuration files <small>(Contains names, email addresses and
+  occasionally access tokens)</small></li>
+  <li><a href="https://www.chef.io/chef/">Chef</a> Knife configuration files
+  <small>(Might contain references to Chef servers)</small></li>
+  <li><a href="https://www.chef.io/chef/">Chef</a> private keys <small>(Gives
+  access to Chef servers)</small></li>
+  <li><a href="https://cpanel.com/">cPanel</a> backup ProFTPd credential files
+  <small>(Might contain FTP server credentials)</small></li>
+  <li><a href="https://robomongo.org/">Robomongo</a> configuration files
+  <small>(Might contain MongoDB database credentials)</small></li>
+  <li><a href="https://filezilla-project.org/">FileZilla</a> configuration files
+  <small>(Might contain FTP server credentials)</small></li>
+  <li><a href="https://filezilla-project.org/">FileZilla</a> recent servers files <small>(Might contain FTP server credentials)</small></li>
+  <li><a href="http://www.ventrilo.com/">Ventrilo</a> server configuration files
+  <small>(Might contain server credentials)</small></li>
+  <li><a href="https://www.docker.com/">Docker</a> configuration files
+  <small>(Might contain credentials for public or private Docker registries)</small></li>
+  <li><a href="https://www.npmjs.com/">NPM</a> configuration files <small>(Might
+  contain credentials for NPM registries)</small></li>
+</ul>
+
+<p>Check out <a href="https://github.com/michenriksen/gitrob/blob/master/signatures.json">signatures.json</a>
+for the full list of file signatures.</p>
+
+<p>If you have a good idea for a new signature, please don't hesitate to make a
+Pull Request or simply create an Issue with details and I will look into it!</p>
+
+<p>I am very excited about this release and I hope you are too. Hurry up and
+run Gitrob against your organization before someone else does! Installation and
+setup instructions can be found in the <a href="https://github.com/michenriksen/gitrob">README on GitHub</a>.</p>
+
+<p><strong>have fun and be responsible!</strong></p>
