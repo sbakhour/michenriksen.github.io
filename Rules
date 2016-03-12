@@ -1,10 +1,5 @@
 #!/usr/bin/env ruby
 
-compile "/sitemap_xml.*" do
-  filter :erb
-  write "/sitemap.xml"
-end
-
 passthrough "/favicon.*"
 passthrough "/fonts/**/*"
 passthrough "/images/**/*"
@@ -22,6 +17,11 @@ end
 compile "/sitemap_xml.erb" do
   filter :erb
   write "/sitemap.xml"
+end
+
+compile "/robots_txt.erb" do
+  filter :erb
+  write "/robots.txt"
 end
 
 compile "/blog/index.erb" do
