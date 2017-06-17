@@ -1,0 +1,501 @@
+---
+title: "AQUATONE: A tool for domain flyovers"
+kind: article
+created_at: 2017-06-17 13:37:00 UTC
+---
+
+<%= render '/post_head.html', :post => item %>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/aquatone/u2.jpg"
+  title="The Lockheed U-2 reconnaissance aircraft was given the codename Aquatone.">
+  <img class="thumbnail" src="/images/aquatone/u2.jpg"
+  alt="" /></a>
+  <small>The Lockheed U-2 reconnaissance aircraft was given the codename Aquatone.</small>
+</div>
+
+<p>Knowing the attack surface of something is critical for both defending and
+  attacking it. When it comes to domain names, a very common approach for
+  uncovering the attack surface is to discover its subdomains. Subdomains will
+  increase the number of potential target sites as well as uncover IP ranges to
+  probe further.</p>
+
+<p>There are plenty of tools already for subdomain enumeration, e.g.
+  <a href="http://tools.kali.org/information-gathering/fierce">Fierce</a>,
+  <a href="https://github.com/TheRook/subbrute">SubBrute</a> and
+  <a href="https://github.com/OJ/gobuster">Gobuster</a> however
+  <a href="https://github.com/michenriksen/aquatone">AQUATONE</a> takes things a
+  step further by not only doing classic brute force enumeration but also
+  utilizing various open sources and internet services to dramatically increase
+  the number of discovered subdomains. When subdomains have been discovered,
+  AQUATONE can then be used to probe the hosts for common HTTP ports and gather
+  response headers, HTML and screenshots to be compiled into a nice report for
+  easy analysis.</p>
+
+<p>To make the tool as flexible as possible, AQUATONE is divided into three
+  separate commands, so if you're only interested in using it for subdomain
+  discovery without any scanning or screenshotting, you can easily do that.
+  Lets go over the three phases of an AQUATONE assessment:</p>
+
+<h2>Phase 1: Discovery</h2>
+
+<p>To demonstrate the usage of AQUATONE, we will perform an assessment on the
+  <code>corp.yahoo.com</code> domain. I have chosen this domain because Yahoo's
+  <a href="https://hackerone.com/yahoo">Bug Bounty program</a> includes all of
+  <code>*.yahoo.com</code> in their scope, so it should be acceptable to run a
+  tool like AQUATONE against it.</p>
+
+<p>Kicking off the <code>aquatone-discover</code> tool:</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/aquatone/discover_start.png"
+  title="Starting aquatone-discover against <code>corp.yahoo.com</code>...">
+  <img class="thumbnail" src="/images/aquatone/discover_start_thumbnail.png"
+  alt="" /></a>
+  <small>Starting aquatone-discover against <code>corp.yahoo.com</code>...</small>
+</div>
+
+<p>The first thing <code>aquatone-discover</code> does is to identify the
+  authoritative name servers for the target domain. Using these name servers
+  for resolution ensures that the information is up to date and discovery is
+  maximised.</p>
+
+<p>It also does a quick test to see if the target domain is configured to be a
+  wildcard domain as such domains can produce a lot of false positives. If the
+  domain turns out to be a wildcard, it will identify the possible wildcard
+  responses and filter them out. <code>corp.yahoo.com</code> is luckily not
+  configured to be wildcard.</p>
+
+<p>After name server and wildcard detection, it proceeds to ask each subdomain
+  collector module for potential subdomains under the target domain.
+  <code>aquatone-discover</code> ships with following collector modules:</p>
+
+<p>
+  <ul>
+    <li>Dictionary brute force (see dictionary <a href="https://github.com/michenriksen/aquatone/blob/master/subdomains.lst">here</a>)</li>
+    <li><a href="http://dnsdb.org/">DNSDB.org</a></li>
+    <li><a href="https://www.google.com/transparencyreport/">Google Transparency Report</a></li>
+    <li><a href="https://hackertarget.com/find-dns-host-records/">HackerTarget</a></li>
+    <li><a href="http://searchdns.netcraft.com/">Netcraft</a></li>
+    <li><a href="https://www.shodan.io/">Shodan</a> (requires API key)</li>
+    <li><a href="https://www.threatcrowd.org/">ThreatCrowd</a></li>
+    <li><a href="http://www.virustotal.com/">VirusTotal</a> (requires API key)</li>
+  </ul>
+</p>
+
+<p>The collector modules returned a total of 12.282 potential subdomains that
+aquatone-discover attempts to resolve.</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/aquatone/discover_progress.png"
+  title="aquatone-discover resolving subdomains. Hitting <code>Enter</code> will output a progress report.">
+  <img class="thumbnail" src="/images/aquatone/discover_progress_thumbnail.png"
+  alt="" /></a>
+  <small>aquatone-discover resolving subdomains. Hitting <code>Enter</code> will output a progress report.</small>
+</div>
+
+<p>After a while, aquatone-discover has run through the list and uncovered a
+  total of 1.958 live subdomains. It also analyzed the IPs and printed a list
+  of potential IP subnet ranges which can be used for further probing:</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/aquatone/discover_finished.png"
+  title="aquatone-discover uncovered a total of 1.958 live subdomains.">
+  <img class="thumbnail" src="/images/aquatone/discover_finished_thumbnail.png"
+  alt="" /></a>
+  <small>aquatone-discover uncovered a total of 1.958 live subdomains.</small>
+</div>
+
+<p>It also wrote the discovered hosts to files in the aquatone assessment
+  directory that is automatically created for the target domain. <code>hosts.txt</code>
+  contains a comma-separated list of domains and their IP:</p>
+
+<pre>
+224-si1.corp.yahoo.com,207.126.224.4
+224-si2.corp.yahoo.com,207.126.224.5
+227-si1.corp.yahoo.com,207.126.227.4
+227-si2.corp.yahoo.com,207.126.227.7
+232-si1.corp.yahoo.com,207.126.232.4
+232-si2.corp.yahoo.com,207.126.232.5
+351-si1.corp.yahoo.com,216.145.51.4
+351-si2.corp.yahoo.com,216.145.51.96
+998-dmz-foundry1.corp.yahoo.com,216.145.48.25
+998-dmz-foundry2.corp.yahoo.com,216.145.48.39
+aa-dc1.wpe.stg.test.corp.yahoo.com,98.137.139.80
+aa-dc2.wpe.stg.test.corp.yahoo.com,98.137.139.81
+aaa1-1-a-gci.corp.yahoo.com,216.145.50.84
+aaa1-2-a-gci.corp.yahoo.com,216.145.50.87
+aahost1.stg.test.corp.yahoo.com,98.137.139.82
+aahost2.stg.test.corp.yahoo.com,98.137.139.83
+aahost3.stg.test.corp.yahoo.com,98.137.139.84
+aahost4.stg.test.corp.yahoo.com,98.137.139.85
+aape01.stg.test.corp.yahoo.com,98.137.139.93
+aavm1.stg.test.corp.yahoo.com,98.137.139.87
+...
+</pre>
+
+<p>This file can be sliced and diced with common command line tools and loaded
+  into other tools that you might use. <code>hosts.json</code> contains the same
+  information in JSON format and is used by the other AQUATONE tools
+  but can also be useful if you want to use the information with custom scripts.</p>
+
+<h2>Phase 2: Scanning</h2>
+
+<p>Having discovered a bunch of subdomains on <code>corp.yahoo.com</code> is
+  already quite useful. We could stop here and start poking around with other
+  tools or manual browsing, but lets instead make <code>aquatone-scan</code> do
+  the hard work for us of finding which hosts might serve web content:</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/aquatone/scan.png"
+  title="aquatone-scan finding open ports on hosts.">
+  <img class="thumbnail" src="/images/aquatone/scan_thumbnail.png"
+  alt="" /></a>
+  <small>aquatone-scan finding open ports on hosts.</small>
+</div>
+
+<p><code>aquatone-scan</code> found a bunch of open HTTP ports across the
+  different hosts. By default, it will scan the following TCP ports: 80, 443,
+  8000, 8080 and 8443 which are all very common ports for web services. You can
+  of course change this to your own list of ports with the <code>--ports</code>
+  option, or specify one of the built-in list aliases:</p>
+
+<p>
+  <ul>
+    <li><code>small</code>: 80, 443</li>
+    <li><code>medium</code>: 80, 443, 8000, 8080, 8443 (same as default)</li>
+    <li><code>large</code>: 80, 81, 443, 591, 2082, 2087, 2095, 2096, 3000, 8000,
+      8001, 8008, 8080, 8083, 8443, 8834, 8888</li>
+    <li><code>huge</code>: 80, 81, 300, 443, 591, 593, 832, 981, 1010, 1311, 2082,
+      2087, 2095, 2096, 2480, 3000, 3128, 3333, 4243, 4567, 4711, 4712, 4993, 5000,
+      5104, 5108, 5800, 6543, 7000, 7396, 7474, 8000, 8001, 8008, 8014, 8042, 8069,
+      8080, 8081, 8088, 8090, 8091, 8118, 8123, 8172, 8222, 8243, 8280, 8281, 8333,
+      8443, 8500, 8834, 8880, 8888, 8983, 9000, 9043, 9060, 9080, 9090, 9091, 9200,
+      9443, 9800, 9981, 12443, 16080, 18091, 18092, 20720, 28017</li>
+  </ul>
+</p>
+
+<p>Using a larger port list will of course let you discover more web services,
+  but it will also increase the time it takes for <code>aquatone-scan</code> to
+  finish.</p>
+
+<p><code>aquatone-scan</code> created two new files in the assessment directory
+  for <code>corp.yahoo.com</code>: <code>open_ports.txt</code> is a simple
+  comma-separated list of hosts and their open ports:</p>
+
+<pre>
+117.104.189.54,443
+124.108.98.253,443
+124.108.98.254,443
+203.83.249.10,443
+203.83.249.4,443
+203.83.249.5,443
+203.83.249.8,443
+203.83.249.9,443
+209.131.62.228,443
+209.131.62.229,443
+209.131.62.230,443
+209.131.62.231,443
+216.145.48.148,443
+216.145.48.149,443
+216.145.48.150,443
+216.145.48.151,443
+216.145.48.152,443
+216.145.48.153,443
+72.30.2.113,443,80
+77.238.184.150,80
+98.136.163.125,80,443
+98.136.205.152,443,80
+98.136.205.216,443
+</pre>
+
+<p><code>urls.txt</code> contains a list of URLs that can be used to request
+the web pages on the open ports:</p>
+
+<pre>
+http://bomgar.corp.yahoo.com/
+http://bouncer.gh.corp.yahoo.com/
+http://buzz.corp.yahoo.com/
+http://cloud.corp.yahoo.com/
+http://fifa.corp.yahoo.com/
+http://gemini.corp.yahoo.com/
+http://guest.corp.yahoo.com/
+http://insights.corp.yahoo.com/
+http://ipv6.corp.yahoo.com/
+http://marketingcentral.corp.yahoo.com/
+http://messenger.corp.yahoo.com/
+http://request.corp.yahoo.com/
+http://sas.corp.yahoo.com/
+http://services.corp.yahoo.com/
+http://shop.corp.yahoo.com/
+http://si.corp.yahoo.com/
+http://wireless.corp.yahoo.com/
+https://bomgar.corp.yahoo.com/
+https://bouncer.gh.corp.yahoo.com/
+https://fast.corp.yahoo.com/
+...
+</pre>
+
+<p>These files are used for the next phase of the assessment but are also
+  convenient for loading into other tools like <a href="https://github.com/ChrisTruncer/EyeWitness">EyeWitness</a>
+  or slicing and dicing with <code>grep,</code> <code>cut,</code> <code>awk,</code> etc.</p>
+
+<h2>Phase 3: Gathering</h2>
+
+<p>We now know about subdomains and open ports on <code>*.corp.yahoo.com</code>,
+it's time to use <code>aquatone-gather</code> to collect HTTP responses and
+screenshots and compile it all into a nice report:</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/aquatone/gather_start.png"
+  title="aquatone-gather crunching through the web pages.">
+  <img class="thumbnail" src="/images/aquatone/gather_start_thumbnail.png"
+  alt="" /></a>
+  <small>aquatone-gather crunching through the web pages.</small>
+</div>
+
+<p><code>aquatone-gather</code> loaded data from the files created by the
+  previous AQUATONE tools and started requesting URLs to collect HTTP
+  responses and screenshots. Behind the scenes, it uses <a href="https://github.com/segmentio/nightmare">Nightmare</a>
+  for all the heavy lifting of requesting and screenshotting.</p>
+
+<p>Unfortunately Nightmare, and any other browser automation tool, is a bit
+  flaky and will fail on some of the page processings as can be seen in the
+  screenshot. I think the failure rate is acceptable, but something to be aware
+  of.
+</p>
+
+<p>After a little while, it finishes processing all the web pages:</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/aquatone/gather_finish.png"
+  title="aquatone-gather finished processing web pages.">
+  <img class="thumbnail" src="/images/aquatone/gather_finish_thumbnail.png"
+  alt="" /></a>
+  <small>aquatone-gather finished processing web pages.</small>
+</div>
+
+<p>It prints a short summary of successful vs. failed page processings and
+  a list of generated report pages, but this is far from the only files that
+  <code>aquatone-gather</code> generated. Navigating to the assessment folder,
+  we can see three new folders: <code>headers</code>, <code>html</code>,
+  <code>report</code> and <code>screenshots</code>.</p>
+
+<p>The <code>headers</code> folder contains text files with response headers
+  from all the page visits:</p>
+
+<pre>
+<strong>root@kali:~/aquatone/corp.yahoo.com/headers# cat bomgar_corp_yahoo_com__98_136_205_152__443.txt</strong>
+Cache-Control: no-cache
+Connection: Keep-Alive
+Content-Type: text/html; charset=utf-8
+Date: Wed, 14 Jun 2017 12:22:01 GMT
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Keep-Alive: timeout=15, max=100
+Pragma: no-cache
+Server: Bomgar
+Set-Cookie: ns_s=c9b9309296cf5babeb7e193125cb2cf0f3c7f13c; path=/; secure; HttpOnly
+Strict-Transport-Security: max-age=31536000
+Transfer-Encoding: chunked
+X-Ua-Compatible: IE=edge
+<strong>root@kali:~/aquatone/corp.yahoo.com/headers#</strong>
+</pre>
+
+<p>These files can be very useful with <code>grep</code> and other tools to
+  quickly find information on server technology and other things that are
+  interesting from a security point of view.</p>
+
+<p>The <code>html</code> folder contains HTML bodies from all the page visits:</p>
+
+<pre>
+<strong>root@kali:~/aquatone/corp.yahoo.com/html# cat bomgar_corp_yahoo_com__98_136_205_152__443.html</strong>
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en-us&quot;&gt;
+&lt;head&gt;
+	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+	&lt;title&gt;Yahoo! Global Service Desk LiveChat&lt;/title&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0&quot; /&gt;
+&lt;link href=&quot;/content/common.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;link href=&quot;/content/public.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;link href=&quot;/content/mobile.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;container&quot;&gt;
+
+&lt;div id=&quot;header&quot; class=&quot;contentBox&quot;&gt;
+...
+&lt;div style=&quot;display: none&quot;&gt;
+&lt;div style=&quot;margin: 1em;&quot;&gt;
+	&lt;a href=&quot;http://www.bomgar.com&quot; class=&quot;inverse&quot; target=&quot;_blank&quot;&gt;Secure Remote Desktop Access by Bomgar&lt;/a&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+<strong>root@kali:~/aquatone/corp.yahoo.com/html#</strong>
+</pre>
+
+<p>There are tons of things that these files can be used for. More on this later.</p>
+
+<p>The <code>screenshots</code> folder contains, as the name might suggest,
+PNG screenshots of all the page visits:</p>
+
+<pre>
+<strong>root@kali:~/aquatone/corp.yahoo.com/screenshots# ls</strong>
+bomgar_corp_yahoo_com__98_136_205_152__443.png
+bomgar_corp_yahoo_com__98_136_205_152__80.png
+bouncer_gh_corp_yahoo_com__72_30_2_113__443.png
+bouncer_gh_corp_yahoo_com__72_30_2_113__80.png
+buzz_corp_yahoo_com__77_238_184_150__80.png
+cloud_corp_yahoo_com__77_238_184_150__80.png
+...
+si_corp_yahoo_com__77_238_184_150__80.png
+vpn1-1-gci_eglbp_corp_yahoo_com__203_83_249_4__443.png
+vpn1-1-ptn_corp_yahoo_com__216_145_48_151__443.png
+vpn1-1-ptn_eglbp_corp_yahoo_com__203_83_249_10__443.png
+vpn1-2-gci_sv6_corp_yahoo_com__209_131_62_228__443.png
+vpn-1-gci_hongkong_corp_yahoo_com__117_104_189_54__443.png
+vpn2-1-gci_eglbp_corp_yahoo_com__203_83_249_5__443.png
+vpn2-1-ptn_corp_yahoo_com__216_145_48_152__443.png
+vpn2-2-gci_sv6_corp_yahoo_com__209_131_62_229__443.png
+vpn-2-gci_sv6_corp_yahoo_com__209_131_62_230__443.png
+wireless_corp_yahoo_com__77_238_184_150__80.png
+<strong>root@kali:~/aquatone/corp.yahoo.com/screenshots#</strong>
+</pre>
+
+<p>You can of course browse these screenshots directly in the folder, but it's
+  probably more useful to analyse them by opening the generated HTML report page:</p>
+
+<div class="screenshot">
+  <a class="fancybox" href="/images/aquatone/aquatone_report.gif"
+  title="Browsing the AQUATONE report.">
+  <img class="thumbnail" src="/images/aquatone/aquatone_report_thumbnail.png"
+  alt="" /></a>
+  <small>Browsing the AQUATONE report (click to see animated Gif).</small>
+</div>
+
+<p>The report lines up the screenshots with response headers so that you quickly
+  scan through the collected information for interesting pages. AQUATONE will
+  highlight headers that may increase security with a green background and
+  headers that may present a security issue with a red background. Before you
+  go on a bug bounty spree with this, please remember that god strangles a puppy
+  every time someone reports missing <code>X-Frame-Options</code>. ;)</p>
+
+<h2>CLI tricks</h2>
+
+<p>The generated report is the final product of AQUATONE, but lots of useful
+  stuff can be done with all the raw files that are generated in the assessment
+  folder, so let's wrap up this blog post with some examples of what you can do:</p>
+
+<h3>Get server technology stats</h3>
+
+<pre>
+<strong>root@kali:~/aquatone/corp.yahoo.com/headers# cat * | grep 'Server:' | sort | uniq -c | sort -nr</strong>
+     13 Server: ATS
+      6 Server: Bomgar
+      1 Server: AkamaiGHost
+<strong>root@kali:~/aquatone/corp.yahoo.com/headers#</strong>
+</pre>
+
+<h3>Find more subdomains</h3>
+
+<pre>
+<strong>root@kali:~/aquatone/corp.yahoo.com/html# cat * | egrep -o '[a-z0-9\-\_\.]+\.corp\.yahoo\.com' | sort -u</strong>
+bomgar.corp.yahoo.com
+bouncer.by.corp.yahoo.com
+fast.corp.yahoo.com
+it.corp.yahoo.com
+request.corp.yahoo.com
+services.corp.yahoo.com
+<strong>root@kali:~/aquatone/corp.yahoo.com/html#</strong>
+</pre>
+
+<h3>Find HTML comments</h3>
+
+<pre>
+<strong>root@kali:~/aquatone/corp.yahoo.com/html# cat * | egrep -o '&lt;!--.*--&gt;'</strong>
+&lt;!--//--&gt;
+&lt;!-- Begin comScore Tag --&gt;
+&lt;!-- bouncer02.gh.bf1.yahoo.com Wed Jun 14 12:22:09 UTC 2017 --&gt;
+&lt;!-- bouncer12-os.gh.bf2.yahoo.com Wed Jun 14 12:22:29 UTC 2017 --&gt;
+&lt;!-- #doc4 --&gt;
+&lt;!-- .dw1 --&gt;
+&lt;!-- .dw4 --&gt;
+...
+&lt;!-- /.shmod --&gt;
+&lt;!-- SpaceID=0 timeout (ads1) --&gt;
+&lt;!-- src2.ops.ir2.yahoo.com Wed Jun 14 12:22:15 UTC 2017 --&gt;
+&lt;!-- src4.ops.ir2.yahoo.com Wed Jun 14 12:21:44 UTC 2017 --&gt;
+&lt;!-- src4.ops.ir2.yahoo.com Wed Jun 14 12:21:51 UTC 2017 --&gt;
+&lt;!-- src4.ops.ir2.yahoo.com Wed Jun 14 12:22:27 UTC 2017 --&gt;
+&lt;!-- src6.ops.ir2.yahoo.com Wed Jun 14 12:21:57 UTC 2017 --&gt;
+&lt;!-- src6.ops.ir2.yahoo.com Wed Jun 14 12:22:15 UTC 2017 --&gt;
+&lt;!-- src6.ops.ir2.yahoo.com Wed Jun 14 12:22:36 UTC 2017 --&gt;
+&lt;!-- URL: /::ProfilerTotal:557:1497442917838::Page Creation:40:1497442917838::user_ups:0:1497442917844::ydht_time:1:1497442917845::Maple Execution:518:1497442917878::Maple WS:41:1497442917879::SHAdModule:457:1497442917921::SHLeftNavigationModule:7:1497442918378::SHHeroModule:0:1497442918385::SHBrowseShoppingModule:5:1497442918385::SHSocialNewBrowseModule:0:1497442918390::SHCopyrightModule:1:1497442918391:: --&gt;
+&lt;!-- web23.shop.bf1.yahoo.com --&gt;
+&lt;!-- web23.shop.bf1.yahoo.com Wed Jun 14 12:21:57 UTC 2017 --&gt;
+</pre>
+
+<h3>Find pages with password fields</h3>
+
+<pre>
+<strong>root@kali:~/aquatone/corp.yahoo.com/html# grep 'type="password"' *</strong>
+bouncer_gh_corp_yahoo_com__72_30_2_113__80.html: &lt;dd&gt;&lt;input class=&quot;input-large&quot; name=&quot;pass_word&quot; type=&quot;password&quot; id=&quot;pass_word&quot; maxlength=&quot;64&quot;   autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; autocapitalize=&quot;off&quot; spellcheck=&quot;false&quot; &gt;&lt;/dd&gt;
+fast_corp_yahoo_com__98_136_205_216__443.html: &lt;dd&gt;&lt;input class=&quot;input-large&quot; name=&quot;pass_word&quot; type=&quot;password&quot; id=&quot;pass_word&quot; maxlength=&quot;64&quot;   autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; autocapitalize=&quot;off&quot; spellcheck=&quot;false&quot; &gt;&lt;/dd&gt;
+<strong>root@kali:~/aquatone/corp.yahoo.com/html#</strong>
+</pre>
+
+<h3>Get hosts listening on port 443</h3>
+
+<pre>
+<strong>root@kali:~/aquatone/corp.yahoo.com# cat open_ports.txt | grep ',443' | cut -d "," -f 1</strong>
+117.104.189.54
+124.108.98.253
+124.108.98.254
+203.83.249.10
+203.83.249.4
+...
+216.145.48.153
+72.30.2.113
+98.136.163.125
+98.136.205.152
+98.136.205.216
+<strong>root@kali:~/aquatone/corp.yahoo.com#</strong>
+</pre>
+
+<h3>Check HTTPS hosts for Heartbleed</h3>
+
+<pre>
+<strong>root@kali:~/aquatone/corp.yahoo.com# grep https urls.txt | cut -d '/' -f 3 > /tmp/targets.lst</strong>
+<strong>root@kali:~/aquatone/corp.yahoo.com# sslscan --targets=/tmp/targets.lst --no-ciphersuites --no-fallback --no-renegotiation --no-compression --no-check-certificate</strong>
+Version: 1.11.9-static
+OpenSSL 1.0.2l-dev  xx XXX xxxx
+
+Testing SSL server bomgar.corp.yahoo.com on port 443 using SNI name
+
+  Heartbleed:
+TLS 1.2 not vulnerable to heartbleed
+TLS 1.1 not vulnerable to heartbleed
+TLS 1.0 not vulnerable to heartbleed
+
+
+
+Testing SSL server bouncer.gh.corp.yahoo.com on port 443 using SNI name
+...
+Testing SSL server vpn2-2-gci.sv6.corp.yahoo.com on port 443 using SNI name
+
+  Heartbleed:
+TLS 1.2 not vulnerable to heartbleed
+TLS 1.1 not vulnerable to heartbleed
+TLS 1.0 not vulnerable to heartbleed
+
+<strong>root@kali:~/aquatone/corp.yahoo.com#</strong>
+</pre>
+
+<p>That's it! I hope you will take AQUATONE on a test flight and let me know
+  what you think. You can find installation instructions in the project
+  <a href="https://github.com/michenriksen/aquatone#installation">README</a>.</p>
