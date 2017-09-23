@@ -4,8 +4,6 @@ kind: article
 created_at: 2016-03-12 13:37:00 UTC
 ---
 
-<%= render '/post_head.html', :post => item %>
-
 <p>It's been more than a year since I released the initial version of Gitrob.
 I haven't had a whole lot of time to expand on it, but now a new and
 improved version is finally here with a bunch of new features requested by
@@ -35,13 +33,11 @@ users in a single assessment. This is great if a company has multiple
 organizations or if you have identified GitHub users who work for the target
 company but don't have their membership publicly visible.</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/gitrob_1_0_0/analyze.png"
-  title="Analyzing an organization and a user in one assessment">
-  <img class="thumbnail" src="/images/gitrob_1_0_0/analyze_thumbnail.png"
-  alt="" /></a>
-  <small>Analyzing an organization and a user in one assessment</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob_1_0_0/analyze.png" class="image fit thumb">
+  <img src="/images/gitrob_1_0_0/analyze_thumbnail.png" alt="" /></a>
+  <h3>Analyzing an organization and a user in one assessment.</h3>
+</article>
 
 <h3>Create and delete assessments in web interface</h3>
 <p>The new version has an improved web application which allows users to run a
@@ -49,13 +45,11 @@ new assessment directly from the web interface. This is very convenient if
 Gitrob runs on a server accessible to multiple users as they no longer require
 command line access to manage assessments.</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/gitrob_1_0_0/new_assessment.png"
-  title="Creating a new assessments from the web interface">
-  <img class="thumbnail" src="/images/gitrob_1_0_0/new_assessment_thumbnail.png"
-  alt="" /></a>
-  <small>Creating a new assessments from the web interface</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob_1_0_0/new_assessment.png" class="image fit thumb">
+  <img src="/images/gitrob_1_0_0/new_assessment_thumbnail.png" alt="" /></a>
+  <h3>Creating a new assessments from the web interface.</h3>
+</article>
 
 <h3>GitHub Enterprise support</h3>
 <p>The new version makes it possible to run Gitrob against custom GitHub
@@ -64,26 +58,22 @@ assessment. <strong>Note:</strong> I unfortunately don't have access to a
 GitHub Enterprise installation, so I would appreciate if anyone could verify if
 this works and report any bugs!</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/gitrob_1_0_0/new_assessment_enterprise.png"
-  title="Assessment against a custom GitHub Enterprise installatation">
-  <img class="thumbnail" src="/images/gitrob_1_0_0/new_assessment_enterprise_thumbnail.png"
-  alt="" /></a>
-  <small>Assessment against a custom GitHub Enterprise installation</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob_1_0_0/new_assessment_enterprise.png" class="image fit thumb">
+  <img src="/images/gitrob_1_0_0/new_assessment_enterprise_thumbnail.png" alt="" /></a>
+  <h3>Assessment against a custom GitHub Enterprise installation.</h3>
+</article>
 
 <h3>Compare assessments for continuous monitoring</h3>
 <p>In the old version it wasn't really easy to continuously monitor an
 organization, but the new version makes it possible to compare two assessments
 to quickly identify new or modified files, users and repositories.</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/gitrob_1_0_0/comparison.gif"
-  title="Comparing two assessments">
-  <img class="thumbnail" src="/images/gitrob_1_0_0/comparison_thumbnail.png"
-  alt="" /></a>
-  <small>Comparing two assessments</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob_1_0_0/comparison.gif" class="image fit thumb">
+  <img src="/images/gitrob_1_0_0/comparison_thumbnail.png" alt="" /></a>
+  <h3>Comparing two assessments (Gif).</h3>
+</article>
 
 <h3>Highlighting of interesting values and detection of test files</h3>
 <p>In the small improvements category, the new version detects and
@@ -92,13 +82,11 @@ addresses when viewing a file's content. The new version will also
 attempt to determine if a file is likely test or mock related and make
 them less visible so they can easily be skipped.</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/gitrob_1_0_0/highlighting.gif"
-  title="Highlighting of interesting values and dimming of test related files">
-  <img class="thumbnail" src="/images/gitrob_1_0_0/highlighting_thumbnail.png"
-  alt="" /></a>
-  <small>Highlighting of interesting values and dimming of test related files</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob_1_0_0/highlighting.gif" class="image fit thumb">
+  <img src="/images/gitrob_1_0_0/highlighting_thumbnail.png" alt="" /></a>
+  <h3>Highlighting of interesting values and dimming of test related files (Gif).</h3>
+</article>
 
 <h2>Under the hood</h2>
 <p>Apart from the new features, Gitrob v1.0.0 is pretty much a complete rewrite

@@ -4,8 +4,6 @@ kind: article
 created_at: 2017-07-21 13:37:00 UTC
 ---
 
-<%= render '/post_head.html', :post => item %>
-
 <p>Hostile subdomain takeover is a very prevalent and potentially critical
 security issue. It's a well-known attack vector and easy to exploit, and should
 therefore be taken seriously.</p>
@@ -41,13 +39,11 @@ for more information.</p>
 which can detect potential subdomain takeover issues across a bunch of popular
 external services:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/aquatone/takeover.png"
-  title="Finding subdomains vulnerable to hostile takeover...">
-  <img class="thumbnail" src="/images/aquatone/takeover_thumbnail.png"
-  alt="" /></a>
-  <small>Finding subdomains vulnerable to hostile takeover...</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/aquatone/takeover.png" class="image fit thumb">
+  <img src="/images/aquatone/takeover_thumbnail.png" alt="" /></a>
+  <h3>Finding subdomains vulnerable to hostile takeover.</h3>
+</article>
 
 <p>To demonstrate the functionality of aquatone-takeover, I temporarily
 configured a couple of subdomains on <code>michenriksen.com</code> pointed at 3

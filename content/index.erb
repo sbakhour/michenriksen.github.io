@@ -1,8 +1,68 @@
 ---
-title: Home
+title: Welcome
 ---
 
-<p>I'm Michael, a security engineer and overall geek living in Berlin, Germany. I'm currently working in the Trust, Safety &amp; Security team at <a href="https://soundcloud.com">SoundCloud</a>.</p>
+<section id="about">
+  <header class="major">
+    <h2>About me</h2>
+  </header>
 
-<h2 class="page-header">Recent blog posts <a href="/blog/feed.xml" class="feed-link" title="Subscribe to blog feed"><img src="/images/feed.png" alt="" width="25" height="25" /></a></h2>
-<%= render '/post_list.html', :posts => sorted_articles.take(10) %>
+  <p>An engineer with a passion for everything security. I build security tools and always have too many projects going on in parallel. When not glued to the screen, I do powerlifting, pick locks or on some kind of adventure in the great outdoors.</p>
+  <ul class="actions">
+    <li><a href="/about" class="button">Learn More</a></li>
+  </ul>
+</section>
+
+<section id="latest_blog_posts">
+  <header class="major">
+    <h2>Latest blog posts</h2>
+  </header>
+
+  <ul class="blog-posts">
+    <% sorted_articles.first(5).each do |post| %>
+      <li>
+        <h3>
+          <span class="publication-date pull-right"><%= attribute_to_time(post[:created_at]).strftime("%b %d, %Y") %></span>
+          <%= link_to post[:title], post.path %>
+        </h3>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul class="actions">
+    <li><a href="/blog" class="button">See More</a></li>
+  </ul>
+</section>
+
+<section id="projects">
+  <header class="major">
+    <h2>My projects</h2>
+  </header>
+
+  <section id="gitrob">
+    <header class="major">
+      <h3><a href="https://github.com/michenriksen/gitrob">Gitrob</a></h3>
+    </header>
+    <p>Gitrob is a command line tool which can help organizations and security professionals find sensitive information lingering in publicly available files on GitHub. The tool will iterate over all public organization and member repositories and match filenames against a range of patterns for files that typically contain sensitive or dangerous information.</p>
+  </section>
+
+  <section id="aquatone">
+    <header class="major">
+      <h3><a href="https://github.com/michenriksen/aquatone">AQUATONE</a></h3>
+    </header>
+    <p>AQUATONE is a set of tools for performing reconnaissance on domain names. It can discover subdomains on a given domain by using open sources as well as the more common subdomain dictionary brute force approach. After subdomain discovery, AQUATONE can then scan the hosts for common web ports and HTTP headers, HTML bodies and screenshots can be gathered and consolidated into a report for easy analysis of the attack surface.</p>
+  </section>
+
+  <section id="birdwatcher">
+    <header class="major">
+      <h3><a href="https://github.com/michenriksen/birdwatcher">Birdwatcher</a></h3>
+    </header>
+    <p>Birdwatcher is a data analysis and OSINT framework for Twitter. Birdwatcher supports creating multiple workspaces where arbitrary Twitter users can be added and their tweets harvested through the Twitter API for offline storage and analysis. Birdwatcher comes with several modules which can be envoked to further enrich collected data or work with it, e.g. Retrieving user's Klout score, generating social graphs between users and weighted word clouds based on their Tweets.</p>
+  </section>
+
+  <ul class="actions">
+    <li><a href="/projects" class="button">See More</a></li>
+  </ul>
+</section>
+
+

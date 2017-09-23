@@ -1,60 +1,63 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Personal website for Michael Henriksen">
-    <meta name="author" content="Michael Henriksen">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <title><%= @item[:title] %> | michenriksen.com</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/fancybox.css">
-    <link rel="stylesheet" href="/css/main.css">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+    <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
+    <meta name="twitter:dnt" content="on">
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for michenriksen.com"  href="/blog/feed.xml" />
   </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <header>
-            <span class="navigation pull-right">
-              <a href="/">Home</a> &middot;
-              <a href="/blog">Blog</a> &middot;
-              <a href="/projects">Projects</a>
-            </span>
 
-            <h1 class="page-header">
-              <a href="/">
-                <img class="thumbnail" src="/images/michenriksen.png" alt="Michael Henriksen" /> Michael Henriksen
-              </a>
-            </h1>
-          </header>
+  <body id="top">
 
-          <%= yield %>
-
-          <footer>
-            <p>
-              Copyright &copy; <%= Time.now.year %> Michael Henriksen &middot;
-              <%= link_to 'Twitter', @config[:twitter_url] %> &middot;
-              <%= link_to 'GitHub', @config[:github_url] %> &middot;
-              <a href="<%= @config[:email_url] %>" class="obfuscated-address" data-obfuscated-address="<%= obfuscate_email(@config[:email_address]) %>">E-mail</a> (<a href="https://keybase.io/michenriksen">PGP</a>) &middot;
-              Powered by <a href="http://nanoc.ws/">nanoc</a>
-            </p>
-          </footer>
-        </div>
+    <!-- Header -->
+    <header id="header">
+      <div class="inner">
+        <a href="/" class="image avatar"><img src="/images/avatar.jpg" alt="Michael Henriksen" /></a>
+        <h1><strong>Hi, I'm Michael.</strong> Security engineer,<br> internet sleuth and builder of tools.</h1>
       </div>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+      <%= yield %>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/js/fancybox.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <ul class="icons">
+          <li><a href="<%= config[:twitter_url] %>" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="<%= config[:github_url] %>" class="icon fa-github"><span class="label">Github</span></a></li>
+          <li><a href="<%= config[:email_url] %>" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+          <li><a href="/blog/feed.xml" class="icon fa-rss"><span class="label">RSS feed</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; <%= Time.now.year %> Michael Henriksen</li>
+          <li><a href="/about">about</a></li>
+          <li><a href="/blog">blog</a></li>
+          <li><a href="/projects">projects</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.poptrox.min.js"></script>
+    <script src="/assets/js/skel.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/assets/js/main.js"></script>
     <script>
       // Respect visitors who don't want to be tracked
       if (!navigator.doNotTrack) {
@@ -67,4 +70,5 @@
       }
     </script>
   </body>
+
 </html>

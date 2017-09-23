@@ -1,27 +1,24 @@
 #!/usr/bin/env ruby
 
+passthrough "/CNAME"
 passthrough "/favicon.*"
-passthrough "/fonts/**/*"
+passthrough "/assets/fonts/*"
+passthrough "/assets/css/images/*"
+passthrough "/assets/js/ie/*.htc"
 passthrough "/images/**/*"
 
-compile "/css/*.css" do
+compile "/assets/css/**/*.css" do
   filter :rainpress
   write item.identifier.to_s
 end
 
-compile "/js/*.js" do
+compile "/assets/js/**/*.js" do
   filter :uglify_js
   write item.identifier.to_s
 end
 
-compile "/sitemap_xml.erb" do
-  filter :erb
-  write "/sitemap.xml"
-end
-
-compile "/robots_txt.erb" do
-  filter :erb
-  write "/robots.txt"
+compile '/**/*.html' do
+  layout '/default.*'
 end
 
 compile "/blog/index.erb" do
@@ -36,9 +33,19 @@ compile "/blog/feed_xml.erb" do
 end
 
 compile "/blog/*" do
-  layout "/default.html"
+  layout "/blog_post.html"
   filter :erb if item.identifier.ext == "erb"
   write item.identifier.without_exts + "/index.html"
+end
+
+compile "/sitemap_xml.erb" do
+  filter :erb
+  write "/sitemap.xml"
+end
+
+compile "/robots_txt.erb" do
+  filter :erb
+  write "/robots.txt"
 end
 
 compile "/**/*" do

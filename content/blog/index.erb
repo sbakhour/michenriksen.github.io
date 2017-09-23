@@ -2,6 +2,19 @@
 title: Blog
 ---
 
-<h2 class="page-header">Blog posts <a href="/blog/feed.xml" class="feed-link" title="Subscribe to blog feed"><img src="/images/feed.png" alt="" width="25" height="25" /></a></h2>
+<section>
+  <header class="major">
+    <h2>Blog posts</h2>
+  </header>
 
-<%= render '/post_list.*', :posts => sorted_articles %>
+  <ul class="blog-posts">
+    <% sorted_articles.each do |post| %>
+      <li>
+        <h3>
+          <span class="publication-date pull-right"><%= attribute_to_time(post[:created_at]).strftime("%b %d, %Y") %></span>
+          <%= link_to post[:title], post.path %>
+        </h3>
+      </li>
+    <% end %>
+  </ul>
+</section>

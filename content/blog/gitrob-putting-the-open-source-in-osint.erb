@@ -4,8 +4,6 @@ kind: article
 created_at: 2015-01-12 13:37:00 UTC
 ---
 
-<%= render '/post_head.html', :post => item %>
-
 <div class="alert alert-info" role="alert">
   <strong>Heads up!</strong>
   A new version of Gitrob is out with a bunch of improvements and features!
@@ -42,9 +40,11 @@ organization itself. It then goes on to collect all the organization members and
 their public repositories, in order to compile a list of repositories that might
 be related or have relevance to the organization.</p>
 
-<a class="fancybox" href="/images/gitrob/gitrob_collecting_repos.png" title="Gitrob collecting repositories from organization members.">
-  <img class="thumbnail" src="/images/gitrob/gitrob_collecting_repos_thumb.png" alt="" />
-</a>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob/gitrob_collecting_repos.png" class="image fit thumb">
+  <img src="/images/gitrob/gitrob_collecting_repos_thumb.png" alt="" /></a>
+  <h3>Gitrob collecting repositories from organization members.</h3>
+</article>
 
 <p>When the list of repositories has been compiled, it proceeds to gather all the
 filenames in each repository and runs them through a series of observers
@@ -52,9 +52,10 @@ that will flag the files, if they match any patterns of known sensitive files.
 This step might take a while if the organization is big or if the members have
 a lot of public repositories.</p>
 
-<a class="fancybox" href="/images/gitrob/gitrob_analyzing_repos.png" title="Gitrob sifting through collected repositories and flagging interesting files.">
-  <img class="thumbnail" src="/images/gitrob/gitrob_analyzing_repos_thumb.png" alt="" />
-</a>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob/gitrob_analyzing_repos.png" class="image fit thumb"><img src="/images/gitrob/gitrob_analyzing_repos_thumb.png" alt="" /></a>
+  <h3>Gitrob sifting through collected repositories and flagging interesting files.</h3>
+</article>
 
 <p>All of the members, repositories and files will be saved to a PostgreSQL database.
 When everything has been sifted through, it will start a
@@ -62,29 +63,39 @@ When everything has been sifted through, it will start a
 which will serve a simple web application to present the collected data for
 analysis.</p>
 
-<a class="fancybox" href="/images/gitrob/gitrob_findings.png" title="Interesting files across all repositories are shown in one list for easy analysis. The quick filter in the top right corner can be used to look for specific files.">
-  <img class="thumbnail" src="/images/gitrob/gitrob_findings_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/gitrob_findings_details.png" title="Clicking on a file will show its contents with syntax highlighting. It will also show why the file was flagged.">
-  <img class="thumbnail" src="/images/gitrob/gitrob_findings_details_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/gitrob_members.png" title="Members of the organization can be viewed in a grid layout. Members with interesting files are easy to spot.">
-  <img class="thumbnail" src="/images/gitrob/gitrob_members_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/gitrob_members_details.png" title="Clicking on a member will show their basic information and public repositories. Repositories with findings are highlighted with an orange background.">
-  <img class="thumbnail" src="/images/gitrob/gitrob_members_details_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/gitrob_repos.png" title="All collected repositories can be viewed in a table with their descriptions and website URLs. Repositories with findings are highlighted with an orange background.">
-  <img class="thumbnail" src="/images/gitrob/gitrob_repos_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/gitrob_repo.png" title="All files in a specific repository can be viewed. The quick filter in the top right corner can be used to look for specific files.">
-  <img class="thumbnail" src="/images/gitrob/gitrob_repo_thumb.png" alt="" />
-</a>
+<div class="row">
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/gitrob_findings.png" class="image fit thumb">
+    <img src="/images/gitrob/gitrob_findings_thumb.png" alt="" /></a>
+    <p>Interesting files across all repositories are shown in one list for easy analysis.
+    The quick filter in the top right corner can be used to look for specific files.</p>
+  </article>
+  <article class="6u$ 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/gitrob_findings_details.png" class="image fit thumb">
+    <img src="/images/gitrob/gitrob_findings_details_thumb.png" alt="" /></a>
+    <p>Clicking on a file will show its contents with syntax highlighting. It will also show why the file was flagged.</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/gitrob_members.png" class="image fit thumb">
+    <img src="/images/gitrob/gitrob_members_thumb.png" alt="" /></a>
+    <p>Members of the organization can be viewed in a grid layout. Members with interesting files are easy to spot.</p>
+  </article>
+  <article class="6u$ 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/gitrob_members_details.png" class="image fit thumb">
+    <img src="/images/gitrob/gitrob_members_details_thumb.png" alt="" /></a>
+    <p>Clicking on a member will show their basic information and public repositories. Repositories with findings are highlighted with an orange background.</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/gitrob_repos.png" class="image fit thumb">
+    <img src="/images/gitrob/gitrob_repos_thumb.png" alt="" /></a>
+    <p>All collected repositories can be viewed in a table with their descriptions and website URLs. Repositories with findings are highlighted with an orange background.</p>
+  </article>
+  <article class="6u$ 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/gitrob_repo.png" class="image fit thumb">
+    <img src="/images/gitrob/gitrob_repo_thumb.png" alt="" /></a>
+    <p>All files in a specific repository can be viewed. The quick filter in the top right corner can be used to look for specific files.</p>
+  </article>
+</div>
 
 <h3>Some findings</h3>
 
@@ -100,45 +111,58 @@ disclosure. Here's some examples...</p>
 in the screenshots; I am not interested in embarrassing or exposing anyone. And
 again, all these findings have been reported.</p>
 
-<a class="fancybox" href="/images/gitrob/finding1.png" title="Found in a <code>.bash_profile</code> file, the employee was thoughtful enough to mask the passwords, but still mapped out a big chunk of infrastructure with his command aliases. It also tells attackers that spear-phishing this employee will likely give them root access to a lot of databases.">
-  <img class="thumbnail" src="/images/gitrob/finding1_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/finding2.png" title="Found in a <code>.bash_profile</code> file, the command aliases revealed the existence of a secret <em>black site</em> domain used for the company's tools for everyday operations such as analytics, metrics and  continuous integration. A big increase in attack surface.">
-  <img class="thumbnail" src="/images/gitrob/finding2_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/finding3.png" title="Command history files can contain a lot of sensitive information, such as passwords, API keys and hostnames.">
-  <img class="thumbnail" src="/images/gitrob/finding3_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/finding4.png" title="A developer had open sourced a Wordpress website, including a complete database dump with password hash for his user account. Maybe the same password is used somewhere else?">
-  <img class="thumbnail" src="/images/gitrob/finding4_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/finding5.png" title="An <code>.env</code> file for a chat bot contained several credentials. Apart from an attacker being able to spy on their Campfire chat and steal stuff from the data stores, they would also be able to control the temperature somewhere with the Nest credentials.">
-  <img class="thumbnail" src="/images/gitrob/finding5_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/finding6.png" title="A company had open sourced their documentation website, a simple Ruby On Rails application. They forgot to remove the application secret token, which can be <a href='http://www.rapid7.com/db/modules/exploit/multi/http/rails_secret_deserialization'>exploited</a> to achieve remote code execution.">
-  <img class="thumbnail" src="/images/gitrob/finding6_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/finding7.png" title="A developer had checked in his KeePass password database containing 174 entries. The data is heavily encrypted, but the master password can be <a href='https://github.com/darkk/keebrute'>brute-forced</a>. In this case the company was certainly interesting enough for someone to throw a lot of computing power at that task.">
-  <img class="thumbnail" src="/images/gitrob/finding7_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/finding8.png" title="Amazon EC2 credentials found in a <code>.zshrc</code> file. depending on the level of privilege, it can potentially give complete control of the company's infrastructure.">
-  <img class="thumbnail" src="/images/gitrob/finding8_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/finding9.png" title="An employee had checked in an Amazon EC2 private key which can potentially give complete control of the company's infrastructure.">
-  <img class="thumbnail" src="/images/gitrob/finding9_thumb.png" alt="" />
-</a>
-
-<a class="fancybox" href="/images/gitrob/finding10.png" title="The same employee from the last screenshot also checked in his private SSH key, which could potentially grant access to the company's SSH servers. It could potentially also be used to clone private organization repositories.">
-  <img class="thumbnail" src="/images/gitrob/finding10_thumb.png" alt="" />
-</a>
+<div class="row">
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/finding1.png" class="image fit thumb">
+    <img src="/images/gitrob/finding1_thumb.png" alt="" /></a>
+    <p>Found in a <code>.bash_profile</code> file, the employee was thoughtful enough to mask the passwords, but still mapped out a big chunk of infrastructure with his command aliases. It also tells attackers that spear-phishing this employee will likely give them root access to a lot of databases.</p>
+  </article>
+  <article class="6u$ 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/finding2.png" class="image fit thumb">
+    <img src="/images/gitrob/finding2_thumb.png" alt="" /></a>
+    <p>Found in a <code>.bash_profile</code> file, the command aliases revealed the existence of a secret <em>black site</em> domain used for the company's tools for everyday operations such as analytics, metrics and  continuous integration. A big increase in attack surface.</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/finding3.png" class="image fit thumb">
+    <img src="/images/gitrob/finding3_thumb.png" alt="" /></a>
+    <p>Command history files can contain a lot of sensitive information, such as passwords, API keys and hostnames.</p>
+  </article>
+  <article class="6u$ 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/finding4.png" class="image fit thumb">
+    <img src="/images/gitrob/finding4_thumb.png" alt="" /></a>
+    <p>A developer had open sourced a Wordpress website, including a complete database dump with password hash for his user account. Maybe the same password is used somewhere else?</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/finding5.png" class="image fit thumb">
+    <img src="/images/gitrob/finding5_thumb.png" alt="" /></a>
+    <p>An <code>.env</code> file for a chat bot contained several credentials. Apart from an attacker being able to spy on their Campfire chat and steal stuff from the data stores, they would also be able to control the temperature somewhere with the Nest credentials.</p>
+  </article>
+  <article class="6u$ 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/finding6.png" class="image fit thumb">
+    <img src="/images/gitrob/finding6_thumb.png" alt="" /></a>
+    <p>A company had open sourced their documentation website, a simple Ruby On Rails application. They forgot to remove the application secret token, which can be <a href='http://www.rapid7.com/db/modules/exploit/multi/http/rails_secret_deserialization'>exploited</a> to achieve remote code execution.</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/finding7.png" class="image fit thumb">
+    <img src="/images/gitrob/finding7_thumb.png" alt="" /></a>
+    <p>A developer had checked in his KeePass password database containing 174 entries. The data is heavily encrypted, but the master password can be <a href='https://github.com/darkk/keebrute'>brute-forced</a>. In this case the company was certainly interesting enough for someone to throw a lot of computing power at that task.</p>
+  </article>
+  <article class="6u$ 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/finding8.png" class="image fit thumb">
+    <img src="/images/gitrob/finding8_thumb.png" alt="" /></a>
+    <p>Amazon EC2 credentials found in a <code>.zshrc</code> file. depending on the level of privilege, it can potentially give complete control of the company's infrastructure.</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/finding9.png" class="image fit thumb">
+    <img src="/images/gitrob/finding9_thumb.png" alt="" /></a>
+    <p>An employee had checked in an Amazon EC2 private key which can potentially give complete control of the company's infrastructure.</p>
+  </article>
+  <article class="6u$ 12u$(xsmall) poptrox">
+    <a href="/images/gitrob/finding10.png" class="image fit thumb">
+    <img src="/images/gitrob/finding10_thumb.png" alt="" /></a>
+    <p>The same employee from the last screenshot also checked in his private SSH key, which could potentially grant access to the company's SSH servers. It could potentially also be used to clone private organization repositories.</p>
+  </article>
+</div>
 
 <h3>Installing and setting up Gitrob</h3>
 
@@ -180,9 +204,11 @@ details and GitHub access tokens. All of this configuration can be changed by
 running the same command again. The configuration will be saved in <code>~/.gitrobrc</code>
 - and yes, Gitrob is looking for this file too so watch out.</p>
 
-<a class="fancybox" href="/images/gitrob/gitrob_configuration.png" title="Setting up Gitrob with the configuration wizard.">
-  <img class="thumbnail" src="/images/gitrob/gitrob_configuration_thumb.png" alt="" />
-</a>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob/gitrob_configuration.png" class="image fit thumb">
+  <img src="/images/gitrob/gitrob_configuration_thumb.png" alt="" /></a>
+  <h3>Setting up Gitrob with the configuration wizard.</h3>
+</article>
 
 <p>When everything is set up, you can start analyzing organizations by running
 <code>gitrob -o &lt;orgname&gt;</code> in a terminal. To see options, use

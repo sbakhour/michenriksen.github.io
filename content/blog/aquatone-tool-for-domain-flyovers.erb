@@ -4,15 +4,11 @@ kind: article
 created_at: 2017-06-17 13:37:00 UTC
 ---
 
-<%= render '/post_head.html', :post => item %>
-
-<div class="screenshot">
-  <a class="fancybox" href="/images/aquatone/u2.jpg"
-  title="The Lockheed U-2 reconnaissance aircraft was given the codename Aquatone.">
-  <img class="thumbnail" src="/images/aquatone/u2.jpg"
-  alt="" /></a>
-  <small>The Lockheed U-2 reconnaissance aircraft was given the codename Aquatone.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/aquatone/u2.jpg" class="image fit thumb">
+  <img src="/images/aquatone/u2.jpg" alt="" /></a>
+  <h3>The Lockheed U-2 reconnaissance aircraft was given the codename Aquatone.</h3>
+</article>
 
 <p>Knowing the attack surface of something is critical for both defending and
   attacking it. When it comes to domain names, a very common approach for
@@ -47,13 +43,11 @@ created_at: 2017-06-17 13:37:00 UTC
 
 <p>Kicking off the <code>aquatone-discover</code> tool:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/aquatone/discover_start.png"
-  title="Starting aquatone-discover against <code>corp.yahoo.com</code>...">
-  <img class="thumbnail" src="/images/aquatone/discover_start_thumbnail.png"
-  alt="" /></a>
-  <small>Starting aquatone-discover against <code>corp.yahoo.com</code>...</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/aquatone/discover_start.png" class="image fit thumb">
+  <img src="/images/aquatone/discover_start_thumbnail.png" alt="" /></a>
+  <h3>Starting aquatone-discover against <code>corp.yahoo.com</code>...</h3>
+</article>
 
 <p>The first thing <code>aquatone-discover</code> does is to identify the
   authoritative name servers for the target domain. Using these name servers
@@ -86,32 +80,28 @@ created_at: 2017-06-17 13:37:00 UTC
 <p>The collector modules returned a total of 12.282 potential subdomains that
 aquatone-discover attempts to resolve.</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/aquatone/discover_progress.png"
-  title="aquatone-discover resolving subdomains. Hitting <code>Enter</code> will output a progress report.">
-  <img class="thumbnail" src="/images/aquatone/discover_progress_thumbnail.png"
-  alt="" /></a>
-  <small>aquatone-discover resolving subdomains. Hitting <code>Enter</code> will output a progress report.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/aquatone/discover_progress.png" class="image fit thumb">
+  <img src="/images/aquatone/discover_progress_thumbnail.png" alt="" /></a>
+  <h3>aquatone-discover resolving subdomains. Hitting <code>Enter</code> will output a progress report.</h3>
+</article>
 
 <p>After a while, aquatone-discover has run through the list and uncovered a
   total of 1.958 live subdomains. It also analyzed the IPs and printed a list
   of potential IP subnet ranges which can be used for further probing:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/aquatone/discover_finished.png"
-  title="aquatone-discover uncovered a total of 1.958 live subdomains.">
-  <img class="thumbnail" src="/images/aquatone/discover_finished_thumbnail.png"
-  alt="" /></a>
-  <small>aquatone-discover uncovered a total of 1.958 live subdomains.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/aquatone/discover_finished.png" class="image fit thumb">
+  <img src="/images/aquatone/discover_finished_thumbnail.png" alt="" /></a>
+  <h3>aquatone-discover uncovered a total of 1.958 live subdomains.</h3>
+</article>
 
 <p>It also wrote the discovered hosts to files in the aquatone assessment
   directory that is automatically created for the target domain. <code>hosts.txt</code>
   contains a comma-separated list of domains and their IP:</p>
 
 <pre>
-224-si1.corp.yahoo.com,207.126.224.4
+<code>224-si1.corp.yahoo.com,207.126.224.4
 224-si2.corp.yahoo.com,207.126.224.5
 227-si1.corp.yahoo.com,207.126.227.4
 227-si2.corp.yahoo.com,207.126.227.7
@@ -132,6 +122,7 @@ aahost4.stg.test.corp.yahoo.com,98.137.139.85
 aape01.stg.test.corp.yahoo.com,98.137.139.93
 aavm1.stg.test.corp.yahoo.com,98.137.139.87
 ...
+</code>
 </pre>
 
 <p>This file can be sliced and diced with common command line tools and loaded
@@ -146,13 +137,11 @@ aavm1.stg.test.corp.yahoo.com,98.137.139.87
   tools or manual browsing, but lets instead make <code>aquatone-scan</code> do
   the hard work for us of finding which hosts might serve web content:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/aquatone/scan.png"
-  title="aquatone-scan finding open ports on hosts.">
-  <img class="thumbnail" src="/images/aquatone/scan_thumbnail.png"
-  alt="" /></a>
-  <small>aquatone-scan finding open ports on hosts.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/aquatone/scan.png" class="image fit thumb">
+  <img src="/images/aquatone/scan_thumbnail.png" alt="" /></a>
+  <h3>aquatone-scan finding open ports on hosts.</h3>
+</article>
 
 <p><code>aquatone-scan</code> found a bunch of open HTTP ports across the
   different hosts. By default, it will scan the following TCP ports: 80, 443,
@@ -184,7 +173,7 @@ aavm1.stg.test.corp.yahoo.com,98.137.139.87
   comma-separated list of hosts and their open ports:</p>
 
 <pre>
-117.104.189.54,443
+<code>117.104.189.54,443
 124.108.98.253,443
 124.108.98.254,443
 203.83.249.10,443
@@ -207,13 +196,14 @@ aavm1.stg.test.corp.yahoo.com,98.137.139.87
 98.136.163.125,80,443
 98.136.205.152,443,80
 98.136.205.216,443
+</code>
 </pre>
 
 <p><code>urls.txt</code> contains a list of URLs that can be used to request
 the web pages on the open ports:</p>
 
 <pre>
-http://bomgar.corp.yahoo.com/
+<code>http://bomgar.corp.yahoo.com/
 http://bouncer.gh.corp.yahoo.com/
 http://buzz.corp.yahoo.com/
 http://cloud.corp.yahoo.com/
@@ -234,6 +224,7 @@ https://bomgar.corp.yahoo.com/
 https://bouncer.gh.corp.yahoo.com/
 https://fast.corp.yahoo.com/
 ...
+</code>
 </pre>
 
 <p>These files are used for the next phase of the assessment but are also
@@ -246,13 +237,11 @@ https://fast.corp.yahoo.com/
 it's time to use <code>aquatone-gather</code> to collect HTTP responses and
 screenshots and compile it all into a nice report:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/aquatone/gather_start.png"
-  title="aquatone-gather crunching through the web pages.">
-  <img class="thumbnail" src="/images/aquatone/gather_start_thumbnail.png"
-  alt="" /></a>
-  <small>aquatone-gather crunching through the web pages.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/aquatone/gather_start.png" class="image fit thumb">
+  <img src="/images/aquatone/gather_start_thumbnail.png" alt="" /></a>
+  <h3>aquatone-gather crunching through the web pages.</h3>
+</article>
 
 <p><code>aquatone-gather</code> loaded data from the files created by the
   previous AQUATONE tools and started requesting URLs to collect HTTP
@@ -267,13 +256,11 @@ screenshots and compile it all into a nice report:</p>
 
 <p>After a little while, it finishes processing all the web pages:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/aquatone/gather_finish.png"
-  title="aquatone-gather finished processing web pages.">
-  <img class="thumbnail" src="/images/aquatone/gather_finish_thumbnail.png"
-  alt="" /></a>
-  <small>aquatone-gather finished processing web pages.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/aquatone/gather_finish.png" class="image fit thumb">
+  <img src="/images/aquatone/gather_finish_thumbnail.png" alt="" /></a>
+  <h3>aquatone-gather finished processing web pages.</h3>
+</article>
 
 <p>It prints a short summary of successful vs. failed page processings and
   a list of generated report pages, but this is far from the only files that
@@ -285,7 +272,7 @@ screenshots and compile it all into a nice report:</p>
   from all the page visits:</p>
 
 <pre>
-<strong>root@kali:~/aquatone/corp.yahoo.com/headers# cat bomgar_corp_yahoo_com__98_136_205_152__443.txt</strong>
+<code><strong>root@kali:~/aquatone/corp.yahoo.com/headers# cat bomgar_corp_yahoo_com__98_136_205_152__443.txt</strong>
 Cache-Control: no-cache
 Connection: Keep-Alive
 Content-Type: text/html; charset=utf-8
@@ -299,6 +286,7 @@ Strict-Transport-Security: max-age=31536000
 Transfer-Encoding: chunked
 X-Ua-Compatible: IE=edge
 <strong>root@kali:~/aquatone/corp.yahoo.com/headers#</strong>
+</code>
 </pre>
 
 <p>These files can be very useful with <code>grep</code> and other tools to
@@ -308,7 +296,7 @@ X-Ua-Compatible: IE=edge
 <p>The <code>html</code> folder contains HTML bodies from all the page visits:</p>
 
 <pre>
-<strong>root@kali:~/aquatone/corp.yahoo.com/html# cat bomgar_corp_yahoo_com__98_136_205_152__443.html</strong>
+<code><strong>root@kali:~/aquatone/corp.yahoo.com/html# cat bomgar_corp_yahoo_com__98_136_205_152__443.html</strong>
 &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en-us&quot;&gt;
 &lt;head&gt;
@@ -337,6 +325,7 @@ X-Ua-Compatible: IE=edge
 &lt;/body&gt;
 &lt;/html&gt;
 <strong>root@kali:~/aquatone/corp.yahoo.com/html#</strong>
+</code>
 </pre>
 
 <p>There are tons of things that these files can be used for. More on this later.</p>
@@ -345,7 +334,7 @@ X-Ua-Compatible: IE=edge
 PNG screenshots of all the page visits:</p>
 
 <pre>
-<strong>root@kali:~/aquatone/corp.yahoo.com/screenshots# ls</strong>
+<code><strong>root@kali:~/aquatone/corp.yahoo.com/screenshots# ls</strong>
 bomgar_corp_yahoo_com__98_136_205_152__443.png
 bomgar_corp_yahoo_com__98_136_205_152__80.png
 bouncer_gh_corp_yahoo_com__72_30_2_113__443.png
@@ -365,18 +354,17 @@ vpn2-2-gci_sv6_corp_yahoo_com__209_131_62_229__443.png
 vpn-2-gci_sv6_corp_yahoo_com__209_131_62_230__443.png
 wireless_corp_yahoo_com__77_238_184_150__80.png
 <strong>root@kali:~/aquatone/corp.yahoo.com/screenshots#</strong>
+</code>
 </pre>
 
 <p>You can of course browse these screenshots directly in the folder, but it's
   probably more useful to analyse them by opening the generated HTML report page:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/aquatone/aquatone_report.gif"
-  title="Browsing the AQUATONE report.">
-  <img class="thumbnail" src="/images/aquatone/aquatone_report_thumbnail.png"
-  alt="" /></a>
-  <small>Browsing the AQUATONE report (click to see animated Gif).</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/aquatone/aquatone_report.gif" class="image fit thumb">
+  <img src="/images/aquatone/aquatone_report_thumbnail.png" alt="" /></a>
+  <h3>Browsing the AQUATONE report (Gif).</h3>
+</article>
 
 <p>The report lines up the screenshots with response headers so that you quickly
   scan through the collected information for interesting pages. AQUATONE will
@@ -394,17 +382,18 @@ wireless_corp_yahoo_com__77_238_184_150__80.png
 <h3>Get server technology stats</h3>
 
 <pre>
-<strong>root@kali:~/aquatone/corp.yahoo.com/headers# cat * | grep 'Server:' | sort | uniq -c | sort -nr</strong>
+<code><strong>root@kali:~/aquatone/corp.yahoo.com/headers# cat * | grep 'Server:' | sort | uniq -c | sort -nr</strong>
      13 Server: ATS
       6 Server: Bomgar
       1 Server: AkamaiGHost
 <strong>root@kali:~/aquatone/corp.yahoo.com/headers#</strong>
+</code>
 </pre>
 
 <h3>Find more subdomains</h3>
 
 <pre>
-<strong>root@kali:~/aquatone/corp.yahoo.com/html# cat * | egrep -o '[a-z0-9\-\_\.]+\.corp\.yahoo\.com' | sort -u</strong>
+<code><strong>root@kali:~/aquatone/corp.yahoo.com/html# cat * | egrep -o '[a-z0-9\-\_\.]+\.corp\.yahoo\.com' | sort -u</strong>
 bomgar.corp.yahoo.com
 bouncer.by.corp.yahoo.com
 fast.corp.yahoo.com
@@ -412,12 +401,13 @@ it.corp.yahoo.com
 request.corp.yahoo.com
 services.corp.yahoo.com
 <strong>root@kali:~/aquatone/corp.yahoo.com/html#</strong>
+</code>
 </pre>
 
 <h3>Find HTML comments</h3>
 
 <pre>
-<strong>root@kali:~/aquatone/corp.yahoo.com/html# cat * | egrep -o '&lt;!--.*--&gt;'</strong>
+<code><strong>root@kali:~/aquatone/corp.yahoo.com/html# cat * | egrep -o '&lt;!--.*--&gt;'</strong>
 &lt;!--//--&gt;
 &lt;!-- Begin comScore Tag --&gt;
 &lt;!-- bouncer02.gh.bf1.yahoo.com Wed Jun 14 12:22:09 UTC 2017 --&gt;
@@ -438,21 +428,23 @@ services.corp.yahoo.com
 &lt;!-- URL: /::ProfilerTotal:557:1497442917838::Page Creation:40:1497442917838::user_ups:0:1497442917844::ydht_time:1:1497442917845::Maple Execution:518:1497442917878::Maple WS:41:1497442917879::SHAdModule:457:1497442917921::SHLeftNavigationModule:7:1497442918378::SHHeroModule:0:1497442918385::SHBrowseShoppingModule:5:1497442918385::SHSocialNewBrowseModule:0:1497442918390::SHCopyrightModule:1:1497442918391:: --&gt;
 &lt;!-- web23.shop.bf1.yahoo.com --&gt;
 &lt;!-- web23.shop.bf1.yahoo.com Wed Jun 14 12:21:57 UTC 2017 --&gt;
+</code>
 </pre>
 
 <h3>Find pages with password fields</h3>
 
 <pre>
-<strong>root@kali:~/aquatone/corp.yahoo.com/html# grep 'type="password"' *</strong>
+<code><strong>root@kali:~/aquatone/corp.yahoo.com/html# grep 'type="password"' *</strong>
 bouncer_gh_corp_yahoo_com__72_30_2_113__80.html: &lt;dd&gt;&lt;input class=&quot;input-large&quot; name=&quot;pass_word&quot; type=&quot;password&quot; id=&quot;pass_word&quot; maxlength=&quot;64&quot;   autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; autocapitalize=&quot;off&quot; spellcheck=&quot;false&quot; &gt;&lt;/dd&gt;
 fast_corp_yahoo_com__98_136_205_216__443.html: &lt;dd&gt;&lt;input class=&quot;input-large&quot; name=&quot;pass_word&quot; type=&quot;password&quot; id=&quot;pass_word&quot; maxlength=&quot;64&quot;   autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; autocapitalize=&quot;off&quot; spellcheck=&quot;false&quot; &gt;&lt;/dd&gt;
 <strong>root@kali:~/aquatone/corp.yahoo.com/html#</strong>
+</code>
 </pre>
 
 <h3>Get hosts listening on port 443</h3>
 
 <pre>
-<strong>root@kali:~/aquatone/corp.yahoo.com# cat open_ports.txt | grep ',443' | cut -d "," -f 1</strong>
+<code><strong>root@kali:~/aquatone/corp.yahoo.com# cat open_ports.txt | grep ',443' | cut -d "," -f 1</strong>
 117.104.189.54
 124.108.98.253
 124.108.98.254
@@ -465,12 +457,13 @@ fast_corp_yahoo_com__98_136_205_216__443.html: &lt;dd&gt;&lt;input class=&quot;i
 98.136.205.152
 98.136.205.216
 <strong>root@kali:~/aquatone/corp.yahoo.com#</strong>
+</code>
 </pre>
 
 <h3>Check HTTPS hosts for Heartbleed</h3>
 
 <pre>
-<strong>root@kali:~/aquatone/corp.yahoo.com# grep https urls.txt | cut -d '/' -f 3 > /tmp/targets.lst</strong>
+<code><strong>root@kali:~/aquatone/corp.yahoo.com# grep https urls.txt | cut -d '/' -f 3 > /tmp/targets.lst</strong>
 <strong>root@kali:~/aquatone/corp.yahoo.com# sslscan --targets=/tmp/targets.lst --no-ciphersuites --no-fallback --no-renegotiation --no-compression --no-check-certificate</strong>
 Version: 1.11.9-static
 OpenSSL 1.0.2l-dev  xx XXX xxxx
@@ -494,6 +487,7 @@ TLS 1.1 not vulnerable to heartbleed
 TLS 1.0 not vulnerable to heartbleed
 
 <strong>root@kali:~/aquatone/corp.yahoo.com#</strong>
+</code>
 </pre>
 
 <p>That's it! I hope you will take AQUATONE on a test flight and let me know

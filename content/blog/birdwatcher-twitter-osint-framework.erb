@@ -4,20 +4,16 @@ kind: article
 created_at: 2016-10-14 13:37:00 UTC
 ---
 
-<%= render '/post_head.html', :post => item %>
-
 <p>Yes, here again with another tool release. This time it's an
 <a href="https://en.wikipedia.org/wiki/Open-source_intelligence">OSINT</a>
 framework for a different social network &mdash;
 <a href="https://twitter.com/">Twitter.com</a>.</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/start.png"
-  title="Birdwatcher framework">
-  <img class="thumbnail" src="/images/birdwatcher/start_thumbnail.png"
-  alt="" /></a>
-  <small>Birdwatcher framework</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/start.png" class="image fit thumb">
+  <img src="/images/birdwatcher/start_thumbnail.png" alt="" /></a>
+  <h3>Birdwatcher framework.</h3>
+</article>
 
 <p><a href="https://github.com/michenriksen/birdwatcher">Birdwatcher</a> started
 out as a collection of small scripts to generate a classic weighted word cloud
@@ -56,13 +52,11 @@ workspace for each of them, to prevent cross contamination.</p>
 <p>The core of the Birdwatcher framework is its commands and one of the most
 important ones is the <code>help</code> command:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/help.png"
-  title="Executing the help command">
-  <img class="thumbnail" src="/images/birdwatcher/help_thumbnail.png"
-  alt="" /></a>
-  <small>Executing the help command</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/help.png" class="image fit thumb">
+  <img src="/images/birdwatcher/help_thumbnail.png" alt="" /></a>
+  <h3>Executing the help command.</h3>
+</article>
 
 <p>The <code>help</code> command simply lists all available commands with short descriptions
 of what they do.</p>
@@ -107,13 +101,11 @@ be fun to go through how we can create our own LOVELY HORSE program...</p>
 <p>Instead of using the default workspace, let's create a dedicated one for our
 lovely horses to keep things neat and tidy:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/workspace.png"
-  title="Creating a new workspace">
-  <img class="thumbnail" src="/images/birdwatcher/workspace_thumbnail.png"
-  alt="" /></a>
-  <small>Creating a new workspace</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/workspace.png" class="image fit thumb">
+  <img src="/images/birdwatcher/workspace_thumbnail.png" alt="" /></a>
+  <h3>Creating a new workspace.</h3>
+</article>
 
 <p>The <code>workspace add</code> command created our new workspace and
 automatically made it the currently active one, as can be seen in the square
@@ -170,13 +162,11 @@ but that would be a lot of typing and I don't really like that. Instead we can
 make use of our first module to easily import them into the workspace. We copy
 the usernames and save them to a file and load the User Importer module:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/module_info.png"
-  title="The User Importer module">
-  <img class="thumbnail" src="/images/birdwatcher/module_info_thumbnail.png"
-  alt="" /></a>
-  <small>The User Importer module</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/module_info.png" class="image fit thumb">
+  <img src="/images/birdwatcher/module_info_thumbnail.png" alt="" /></a>
+  <h3>The User Importer module.</h3>
+</article>
 
 <p>The <code>use</code> command loads a module by its <em>path</em>. The path is
 determined simply by how the module files are placed in the directory stucture.
@@ -193,51 +183,43 @@ can be seen with the <code>show info</code> command.</p>
 <p>The <code>show</code> command can also display any options a module might
 have:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/module_options.png"
-  title="Options for the User Importer module">
-  <img class="thumbnail" src="/images/birdwatcher/module_options_thumbnail.png"
-  alt="" /></a>
-  <small>Options for the User Importer module</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/module_options.png" class="image fit thumb">
+  <img src="/images/birdwatcher/module_options_thumbnail.png" alt="" /></a>
+  <h3>Options for the User Importer module.</h3>
+</article>
 
 <p>The module is very basic and only has one option called <code>FILE</code>
 which tells the module which file to read usernames from. The table tells us
 that the option is required to set and that the current value is empty. Let's
 configure the module and run it:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/user_import.png"
-  title="Importing users">
-  <img class="thumbnail" src="/images/birdwatcher/user_import_thumbnail.png"
-  alt="" /></a>
-  <small>Importing users</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/user_import.png" class="image fit thumb">
+  <img src="/images/birdwatcher/user_import_thumbnail.png" alt="" /></a>
+  <h3>Importing users.</h3>
+</article>
 
 <p>The module fetched basic user information from the Twitter API and saved them
 to the underlying database. We can see the users in the current workspace at any
 time with the <code>user list</code> command:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/user_list.png"
-  title="Paging through users in the workspace">
-  <img class="thumbnail" src="/images/birdwatcher/user_list_thumbnail.png"
-  alt="" /></a>
-  <small>Paging through users in the workspace</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/user_list.png" class="image fit thumb">
+  <img src="/images/birdwatcher/user_list_thumbnail.png" alt="" /></a>
+  <h3>Paging through users in the workspace.</h3>
+</article>
 
 <h3>Fetching Tweets</h3>
 
 <p>Now that we have imported our lovely horses we can fetch their Tweets from
 the Twitter API and have them saved to the database for analysis:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/status_fetch.png"
-  title="Fetching Tweets from users">
-  <img class="thumbnail" src="/images/birdwatcher/status_fetch_thumbnail.png"
-  alt="" /></a>
-  <small>Fetching Tweets from users</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/status_fetch.png" class="image fit thumb">
+  <img src="/images/birdwatcher/status_fetch_thumbnail.png" alt="" /></a>
+  <h3>Fetching Tweets from users.</h3>
+</article>
 
 <p>The <code>status fetch</code> command will fetch up to 1.000 Tweets from each
 user and save them to the database. The command also extracts entities such as
@@ -249,24 +231,20 @@ fetches and processes any Tweets the users might have posted since the last run.
 <p>Now that we have fetched the Tweets we can page through them with the
 <code>status list</code> command:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/status_list.png"
-  title="Listing Tweets from users">
-  <img class="thumbnail" src="/images/birdwatcher/status_list_thumbnail.png"
-  alt="" /></a>
-  <small>Listing Tweets from users</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/status_list.png" class="image fit thumb">
+  <img src="/images/birdwatcher/status_list_thumbnail.png" alt="" /></a>
+  <h3>Listing Tweets from users.</h3>
+</article>
 
 <p>Using the <code>status search</code> command we can find Tweets containing a
 specific word or phrase, for example <em>lovelyhorse</em>:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/status_search.png"
-  title="Searching for Tweets mentioning <em>lovelyhorse</em>">
-  <img class="thumbnail" src="/images/birdwatcher/status_search_thumbnail.png"
-  alt="" /></a>
-  <small>Searching for Tweets mentioning <em>lovelyhorse</em></small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/status_search.png" class="image fit thumb">
+  <img src="/images/birdwatcher/status_search_thumbnail.png" alt="" /></a>
+  <h3>Searching for Tweets mentioning <em>lovelyhorse</em>.</h3>
+</article>
 
 <h3>Crawling URLs</h3>
 
@@ -276,13 +254,11 @@ Right now we only know the URLs that were shared which can pretty hard to
 process. To get a better idea of which links might be interesting we can use the
 URL Crawler module:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/url_crawl_info.png"
-  title="Loading the URL Crawler module">
-  <img class="thumbnail" src="/images/birdwatcher/url_crawl_info_thumbnail.png"
-  alt="" /></a>
-  <small>Loading the URL Crawler module</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/url_crawl_info.png" class="image fit thumb">
+  <img src="/images/birdwatcher/url_crawl_info_thumbnail.png" alt="" /></a>
+  <h3>SLoading the URL Crawler module.</h3>
+</article>
 
 <p>As the module information says, it enriches the collected URLs with their
 HTTP status codes, content types and potentially page titles if the URL points
@@ -293,13 +269,11 @@ URL is somehow obfuscated or shortened we can know the actual destination too.</
 shared URLs as it could be pointing at places you don't want to request with
 your own IP. Let's check the module's options to see what we can do:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/url_crawl_options.png"
-  title="Viewing options for the URL Crawler module">
-  <img class="thumbnail" src="/images/birdwatcher/url_crawl_options_thumbnail.png"
-  alt="" /></a>
-  <small>Viewing options for the URL Crawler module</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/url_crawl_options.png" class="image fit thumb">
+  <img src="/images/birdwatcher/url_crawl_options_thumbnail.png" alt="" /></a>
+  <h3>Viewing options for the URL Crawler module.</h3>
+</article>
 
 <p>This module has a bit more options than the <code>users/import</code> module.
 None of them are required but the <code>PROXY_ADDR</code> and
@@ -311,13 +285,11 @@ exposed as an HTTP proxy with Polipo. Check out this
 <a href="https://www.marcus-povey.co.uk/2016/03/24/using-tor-as-a-http-proxy/">blog post</a>
 if you want to know how it's done.</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/url_crawl.png"
-  title="Crawling URLs for more information">
-  <img class="thumbnail" src="/images/birdwatcher/url_crawl_thumbnail.png"
-  alt="" /></a>
-  <small>Crawling URLs for more information</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/url_crawl.png" class="image fit thumb">
+  <img src="/images/birdwatcher/url_crawl_thumbnail.png" alt="" /></a>
+  <h3>Crawling URLs for more information.</h3>
+</article>
 
 <p>We configure the module to use a proxy and run it. It will steadily crunch
 through the URLs but it might take a while to finish, depending on your
@@ -338,13 +310,11 @@ and who they are being influenced by.</p>
 This module simply retrieves each user's Klout ID which is needed for all the
 other Klout related modules:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/klout_id.png"
-  title="Retrieving user's Klout ID">
-  <img class="thumbnail" src="/images/birdwatcher/klout_id_thumbnail.png"
-  alt="" /></a>
-  <small>Retrieving user's Klout ID</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/klout_id.png" class="image fit thumb">
+  <img src="/images/birdwatcher/klout_id_thumbnail.png" alt="" /></a>
+  <h3>Retrieving user's Klout ID.</h3>
+</article>
 
 <p>Next we run the <code>users/klout_topics</code> module which retrieves the
 general topics that each user is Tweeting about such as <em>Technology</em>,
@@ -353,26 +323,22 @@ topic will be saved in a table and referenced through a join table to users, to
 make it easy to retrieve users who Tweet, or don't Tweet, about a specific
 topic:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/klout_topics.png"
-  title="Retrieving user's Klout topics">
-  <img class="thumbnail" src="/images/birdwatcher/klout_topics_thumbnail.png"
-  alt="" /></a>
-  <small>Retrieving user's Klout topics</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/klout_topics.png" class="image fit thumb">
+  <img src="/images/birdwatcher/klout_topics_thumbnail.png" alt="" /></a>
+  <h3>Retrieving user's Klout topics.</h3>
+</article>
 
 <p>If we want to know about how influential each user is, we can use the
 <code>users/klout_score</code> module to retrieve their Klout score. The score
 is calculated by Klout and is explained <a href="https://klout.com/corp/score">here</a>,
 but the higher the score the more influential the user is:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/klout_score.png"
-  title="Retrieving user's Klout scores">
-  <img class="thumbnail" src="/images/birdwatcher/klout_score_thumbnail.png"
-  alt="" /></a>
-  <small>Retrieving user's Klout scores</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/klout_score.png" class="image fit thumb">
+  <img src="/images/birdwatcher/klout_score_thumbnail.png" alt="" /></a>
+  <h3>Retrieving user's Klout scores.</h3>
+</article>
 
 <p>From the output we can see that mikko is the most influential followed by
 hdmoore and thegrugq. The klout score will of course also be saved to the
@@ -382,13 +348,11 @@ database to make querying based on Klout scores possible.</p>
 information about who our users are being influenced by and who they are
 influencing:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/klout_influence.png"
-  title="Retrieving user's Klout influence">
-  <img class="thumbnail" src="/images/birdwatcher/klout_influence_thumbnail.png"
-  alt="" /></a>
-  <small>Retrieving user's Klout influence</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/klout_influence.png" class="image fit thumb">
+  <img src="/images/birdwatcher/klout_influence_thumbnail.png" alt="" /></a>
+  <h3>Retrieving user's Klout influence.</h3>
+</article>
 
 <h3>Making a word cloud</h3>
 
@@ -398,13 +362,11 @@ classic weighted word cloud based on Tweets from all users, or a smaller
 selection, within a window of time. The module has quite a lot of options for
 customization:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/word_cloud_options.png"
-  title="Viewing options for the Word Cloud module">
-  <img class="thumbnail" src="/images/birdwatcher/word_cloud_options_thumbnail.png"
-  alt="" /></a>
-  <small>Viewing options for the Word Cloud module</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/word_cloud_options.png" class="image fit thumb">
+  <img src="/images/birdwatcher/word_cloud_options_thumbnail.png" alt="" /></a>
+  <h3>Viewing options for the Word Cloud module.</h3>
+</article>
 
 <p>We configure the module with a file destination for the generated image and
 set <code>INCLUDE_PAGE_TITLES</code> to true in order to mix in the page titles
@@ -412,24 +374,20 @@ we previously retrived with the <code>urls/crawl</code> module. This gives an
 even better idea of the topics our users have been talking about over the last
 seven days:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/word_cloud.png"
-  title="Generating a word cloud from Tweets">
-  <img class="thumbnail" src="/images/birdwatcher/word_cloud_thumbnail.png"
-  alt="" /></a>
-  <small>Generating a word cloud from Tweets</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/word_cloud.png" class="image fit thumb">
+  <img src="/images/birdwatcher/word_cloud_thumbnail.png" alt="" /></a>
+  <h3>Generating a word cloud from Tweets.</h3>
+</article>
 
 <p>The result is a pretty word cloud that tells us what has been on our lovely
 horse's mind over the last seven days:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/word_cloud_result.png"
-  title="The result of the word cloud module">
-  <img class="thumbnail" src="/images/birdwatcher/word_cloud_result_thumbnail.png"
-  alt="" /></a>
-  <small>The result of the word cloud module</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/word_cloud_result.png" class="image fit thumb">
+  <img src="/images/birdwatcher/word_cloud_result_thumbnail.png" alt="" /></a>
+  <h3>The result of the word cloud module.</h3>
+</article>
 
 <h3>Generating an influence graph</h3>
 
@@ -437,24 +395,20 @@ horse's mind over the last seven days:</p>
 <code>users/klout_influence</code> can be visualized and examined with the
 <code>users/influence_graph</code> module:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/influence_graph.png"
-  title="Generating a visual influence graph">
-  <img class="thumbnail" src="/images/birdwatcher/influence_graph_thumbnail.png"
-  alt="" /></a>
-  <small>Generating a visual influence graph</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/influence_graph.png" class="image fit thumb">
+  <img src="/images/birdwatcher/influence_graph_thumbnail.png" alt="" /></a>
+  <h3>Generating a visual influence graph.</h3>
+</article>
 
 <p>The result is a directional graph showing who is influencing who according
 to Klout:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/influence_graph_result.png"
-  title="The influence graph visualized">
-  <img class="thumbnail" src="/images/birdwatcher/influence_graph_result_thumbnail.png"
-  alt="" /></a>
-  <small>The influence graph visualized</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/influence_graph_result.png" class="image fit thumb">
+  <img src="/images/birdwatcher/influence_graph_result_thumbnail.png" alt="" /></a>
+  <h3>The influence graph visualized.</h3>
+</article>
 
 <h3>Generating a social graph</h3>
 
@@ -462,26 +416,22 @@ to Klout:</p>
 Klout's influence data but instead finds social connections by analyzing each
 user's Tweets for mentions of other users:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/social_graph.png"
-  title="The social graph between users">
-  <img class="thumbnail" src="/images/birdwatcher/social_graph_thumbnail.png"
-  alt="" /></a>
-  <small>The social graph between users</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/social_graph.png" class="image fit thumb">
+  <img src="/images/birdwatcher/social_graph_thumbnail.png" alt="" /></a>
+  <h3>The social graph between users.</h3>
+</article>
 
 <p>The resulting graph is a bit different from the influence graph and shows a
 very tightly coupled cluster between some users. The edge weight between users
 is calculated simply by counting how many times they mention each other in
 Tweets. The thicker the line, the stronger the connection between two users:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/social_graph_result.png"
-  title="The social graph visualized">
-  <img class="thumbnail" src="/images/birdwatcher/social_graph_result_thumbnail.png"
-  alt="" /></a>
-  <small>The social graph visualized</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/social_graph_result.png" class="image fit thumb">
+  <img src="/images/birdwatcher/social_graph_result_thumbnail.png" alt="" /></a>
+  <h3>The social graph visualized.</h3>
+</article>
 
 <h3>Plotting a user's Twitter engagement</h3>
 
@@ -490,25 +440,21 @@ engaged with Twitter. This might be useful for finding the time where a user
 is most likely to engage with you on Twitter. We can use the
 <code>users/activity_plot</code> module to get an idea of this:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/activity_plot.png"
-  title="The social graph between users">
-  <img class="thumbnail" src="/images/birdwatcher/activity_plot_thumbnail.png"
-  alt="" /></a>
-  <small>Generating an activity plot for <em>halvarflake</em></small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/activity_plot.png" class="image fit thumb">
+  <img src="/images/birdwatcher/activity_plot_thumbnail.png" alt="" /></a>
+  <h3>Generating an activity plot for <em>halvarflake</em>.</h3>
+</article>
 
 <p>The resulting plot tells us that <em>halvarflake</em> is generally very
 engaged with Twitter on Fridays at around 8AM and Tuesdays &amp; Wednesdays at
 around 7PM:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/activity_plot_result.png"
-  title="Halvarflake's activity plot">
-  <img class="thumbnail" src="/images/birdwatcher/activity_plot_result_thumbnail.png"
-  alt="" /></a>
-  <small><em>halvarflake</em>'s activity plot</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/activity_plot_result.png" class="image fit thumb">
+  <img src="/images/birdwatcher/activity_plot_result_thumbnail.png" alt="" /></a>
+  <h3><em>halvarflake</em>'s activity plot.</h3>
+</article>
 
 <h3>Listing shared URLs</h3>
 
@@ -518,13 +464,11 @@ within a specific window of time ordered from most to least shared. If a URL
 has been shared by several users it is a pretty good indicator that it has
 interesting information:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/birdwatcher/most_shared.png"
-  title="Paging through the shared URLs">
-  <img class="thumbnail" src="/images/birdwatcher/most_shared_thumbnail.png"
-  alt="" /></a>
-  <small>Paging through the shared URLs</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/birdwatcher/most_shared.png" class="image fit thumb">
+  <img src="/images/birdwatcher/most_shared_thumbnail.png" alt="" /></a>
+  <h3>Paging through the shared URLs.</h3>
+</article>
 
 <p>Because we ran the <code>urls/crawl</code> module earlier we also see page
 title, content type and HTTP code which is very convenient. Because I used Tor

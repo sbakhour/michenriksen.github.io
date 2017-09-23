@@ -4,8 +4,6 @@ kind: article
 created_at: 2016-11-14 13:37:00 UTC
 ---
 
-<%= render '/post_head.html', :post => item %>
-
 <p>I recently purchased a license for <a href="https://www.hunch.ly/">Hunchly</a>,
 an awesome tool for performing online investigations and general research on
 the web. The tool seems to be very popular among criminal investigators,
@@ -30,13 +28,11 @@ piece of information.</p>
  it's a very common setting to enable as it makes it very easy to spot the
  relevant parts when browsing:</p>
 
- <div class="screenshot">
-  <a class="fancybox" href="/images/hunchly/hunchly_selectors.png"
-  title="Highlighted selectors on the michenriksen.com frontpage.">
-  <img class="thumbnail" src="/images/hunchly/hunchly_selectors_thumbnail.png"
-  alt="" /></a>
-  <small>Highlighted selectors on the michenriksen.com frontpage.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/hunchly/hunchly_selectors.png" class="image fit thumb">
+  <img src="/images/hunchly/hunchly_selectors_thumbnail.png" alt="" /></a>
+  <h3>Highlighted selectors on the michenriksen.com frontpage.</h3>
+</article>
 
 <p>The above screenshot shows how my website's frontpage looks like when Hunchly
 is configured with the selectors: <em>Michael Henriksen</em>, <em>SoundCloud</em>

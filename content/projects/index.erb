@@ -2,51 +2,62 @@
 title: Projects
 ---
 
-<h2>Projects</h2>
+<header class="major">
+  <h2>Projects</h2>
+</header>
 
-<h3><a href="https://github.com/michenriksen/gitrob">Gitrob</a> <small>Reconnaissance tool for GitHub organizations</small></h3>
-<p>Gitrob is a command line tool which can help
-organizations and security professionals find sensitive information lingering in
-publicly available files on GitHub. The tool will iterate over all public
-organization and member repositories and match filenames against a range of
-patterns for files that typically contain sensitive or dangerous information.
-Read the <a href="/blog/gitrob-putting-the-open-source-in-osint/">blog post</a>
-for more information.</p>
+<section id="gitrob">
+  <header class="major">
+    <h3><a href="https://github.com/michenriksen/gitrob">Gitrob</a></h3>
+  </header>
+  <p>Gitrob is a command line tool which can help organizations and security professionals find sensitive information lingering in publicly available files on GitHub. The tool will iterate over all public organization and member repositories and match filenames against a range of patterns for files that typically contain sensitive or dangerous information.</p>
+</section>
 
-<h3><a href="https://github.com/michenriksen/aquatone">AQUATONE</a> <small>A tool for domain flyovers</small></h3>
-<p>AQUATONE is a set of tools for performing reconnaissance on domain names. It can discover subdomains on a given domain by using open sources as well as the more common subdomain dictionary brute force approach. After subdomain discovery, AQUATONE can then scan the hosts for common web ports and HTTP headers, HTML bodies and screenshots can be gathered and consolidated into a report for easy analysis of the attack surface.</p>
+<section id="aquatone">
+  <header class="major">
+    <h3><a href="https://github.com/michenriksen/aquatone">AQUATONE</a></h3>
+  </header>
+  <p>AQUATONE is a set of tools for performing reconnaissance on domain names. It can discover subdomains on a given domain by using open sources as well as the more common subdomain dictionary brute force approach. After subdomain discovery, AQUATONE can then scan the hosts for common web ports and HTTP headers, HTML bodies and screenshots can be gathered and consolidated into a report for easy analysis of the attack surface.</p>
+</section>
 
-<h3><a href="https://github.com/michenriksen/birdwatcher">Birdwatcher</a> <small>Data analysis and OSINT framework for Twitter</small></h3>
-<p>Birdwatcher is a data analysis and OSINT framework for Twitter. Birdwatcher supports creating multiple workspaces where arbitrary Twitter users can be added and their tweets harvested through the Twitter API for offline storage and analysis. Birdwatcher comes with several modules which can be envoked to further enrich collected data or work with it, e.g. Retrieving user's Klout score, generating social graphs between users and weighted word clouds based on their Tweets.</p>
+<section id="birdwatcher">
+  <header class="major">
+    <h3><a href="https://github.com/michenriksen/birdwatcher">Birdwatcher</a></h3>
+  </header>
+  <p>Birdwatcher is a data analysis and OSINT framework for Twitter. Birdwatcher supports creating multiple workspaces where arbitrary Twitter users can be added and their tweets harvested through the Twitter API for offline storage and analysis. Birdwatcher comes with several modules which can be envoked to further enrich collected data or work with it, e.g. Retrieving user's Klout score, generating social graphs between users and weighted word clouds based on their Tweets.</p>
+</section>
 
-<h3><a href="https://github.com/michenriksen/searchpass">Searchpass</a> <small>Quickly find default credentials for network equipment and web applications</small></h3>
-<p>Searchpass is a simple tool for offline searching of default credentials for network devices, web applications and more.</p>
+<section id="dia_threat_modeling">
+  <header class="major">
+    <h3><a href="https://github.com/michenriksen/dia-dfd">DFD</a> and <a href="https://github.com/michenriksen/dia-attacktree">Attack Tree</a> shapes for Dia</h3>
+  </header>
+  <p>Data Flow Diagrams (DFD) and Attack Tree modeling are common tools when performing threat modeling of systems. Unfortunately there aren't a lot of tools out there to do this, which lead me to create Shapes and Sheets for doing both DFD and Attack Tree's in the free and open source <a href="https://wiki.gnome.org/Apps/Dia">Dia</a> diagramming tool.</p>
+</section>
 
-<h3><a href="https://github.com/michenriksen/hibp">HIBP</a> <small>Check e-mail addresses against the haveibeenpwned.com API</small></h3>
-<p><a href="https://haveibeenpwned.com">HaveIBeenPwned.com</a> is a fantastic and
-free web service to check if an e-mail address is included in a collection of
-high profile data breaches. HIBP is a simple command line tool to check a bunch
-of addresses against the HaveIBeenPwned.com API.</p>
+<section id="searchpass">
+  <header class="major">
+    <h3><a href="https://github.com/michenriksen/searchpass">Searchpass</a></h3>
+  </header>
+  <p>Searchpass is a simple tool for offline searching of default credentials for network devices, web applications and more.</p>
+</section>
 
-<h3><a href="https://addons.mozilla.org/en-US/firefox/addon/dolus/">Dolus</a> <small>Spread disinformation when you browse with fake proxy server information</small></h3>
-<p>Dolus is a simple Add-on for the Firefox browser that will add a X-Forwarded-For
-header with a fake IP address to all the browser's requests. The X-Forwarded-For
-header is used by transparent proxies to tell servers which IP address they are
-forwarding requests for and because of that, many servers will log that IP instead
-of the actual requesting IP address. The Add-on can give some potential extra
-anonymity, but it is <strong>not</strong> a replacement for a <a href="https://torrentfreak.com/which-vpn-services-take-your-anonymity-seriously-2014-edition-140315/">VPN</a> or anonymity software like <a href="https://torproject.org">Tor</a>!</p>
+<section id="diceware">
+  <header class="major">
+    <h3><a href="https://diceware.herokuapp.com/">Diceware Password Generator</a></h3>
+  </header>
+  <p><a href="https://en.wikipedia.org/wiki/Diceware">Diceware</a> is a method for creating secure passphrases. The normal procedure requires several rolls with a die which can be pretty time consuming, but the Diceware Passphrase Generator simulates this procedure in code to make it much faster. The passphrase generation is done with client-side Javascript, so no passphrase is ever transfered over the wires, and the Javascript code is delivered over TLS/SSL which provides reasonable protection against tampering.</p>
+</section>
 
-<h3><a href="https://diceware.herokuapp.com/">Diceware Passphrase Generator</a> <small>Secure Diceware passphrase generator</small></h3>
-<p><a href="https://en.wikipedia.org/wiki/Diceware">Diceware</a> is a method for
-creating secure passphrases. The normal procedure requires several rolls with a
-die which can be pretty time consuming, but the Diceware Passphrase Generator
-simulates this procedure in code to make it much faster. The passphrase generation
-is done with client-side Javascript, so no passphrase is ever transfered over the
-wires, and the Javascript code is delivered over TLS/SSL which provides reasonable
-protection against tampering.</p>
+<section id="hackpad">
+  <header class="major">
+    <h3><a href="https://hackpad.herokuapp.com/">Hackpad</a></h3>
+  </header>
+  <p>HackPad is a web application hacker's toolbox. It is meant as a central place to access all the common encoding and decoding functions that are often used when doing a security assessment on a web application. All functions are implemented in client-side Javascript, so there is no risk of leaking sensitive data.</p>
+</section>
 
-<h3><a href="https://hackpad.herokuapp.com/">HackPad</a> <small>Useful tools and functions for web application security assessments</small></h3>
-<p>HackPad is a web application hacker's toolbox. It is meant as a central place
-to access all the common encoding and decoding functions that are often used when
-doing a security assessment on a web application. All functions are implemented
-in client-side Javascript, so there is no risk of leaking sensitive data.</p>
+<section id="tools_more">
+  <header class="major">
+    <h3>More</h3>
+    <p>This far from a complete list of tools and projects, I play around with stuff all the time and open-source most of it. You can check out my <a href="<%= config[:github_url] %>">GitHub profile</a> for more.</p>
+  </header>
+</section>

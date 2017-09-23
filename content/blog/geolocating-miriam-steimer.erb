@@ -4,8 +4,6 @@ kind: article
 created_at: 2017-06-18 13:37:00 UTC
 ---
 
-<%= render '/post_head.html', :post => item %>
-
 <p>If you have been following my blog, you might know that one of my weird
   hobbies is to determine the location of where pictures were taken. My previous
   post on <a href="/blog/geolocating-maks-czuperski/">Geolocating Maks Czuperski</a>
@@ -29,13 +27,11 @@ created_at: 2017-06-18 13:37:00 UTC
 <p>Right-clicking on the image and <em>Copy Image Address</em> gave me a pretty
   high resolution version of the image where I could pick out details easier.</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/geolocation2/wherearewe.jpg"
-  title="The picture from Miriam Steimer's tweet">
-  <img class="thumbnail" src="/images/geolocation2/wherearewe_thumbnail.jpg"
-  alt="" /></a>
-  <small>The picture from Miriam Steimer's tweet (<a href="/images/geolocation2/wherearewe_large.jpg" target="_blank">click here</a> for high resolution)</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/wherearewe.jpg" class="image fit thumb">
+  <img src="/images/geolocation2/wherearewe_thumbnail.jpg" alt="" /></a>
+  <h3>The picture from Miriam Steimer's tweet.</h3>
+</article>
 
 <p>My first idea was to comb the picture for any <em>easy-wins</em> such as the
   name of the place on the yellow parasols in the background, the napkins on the
@@ -45,13 +41,11 @@ created_at: 2017-06-18 13:37:00 UTC
 <p>One detail that I noticed was something that looked like a typical employee
   badge hidden under the phone on the middle table:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/geolocation2/wherearewe_zoom_badge.jpg"
-  title="A possible employee badge under the phone.">
-  <img class="thumbnail" src="/images/geolocation2/wherearewe_zoom_badge_thumbnail.jpg"
-  alt="" /></a>
-  <small>A possible employee badge under the phone.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/wherearewe_zoom_badge.jpg" class="image fit thumb">
+  <img src="/images/geolocation2/wherearewe_zoom_badge_thumbnail.jpg" alt="" /></a>
+  <h3>A possible employee badge under the phone.</h3>
+</article>
 
 <p>The badge made me think that maybe they were having lunch at a work cafeteria
   or similar, so time to figure out where Miriam works...</p>
@@ -60,24 +54,20 @@ created_at: 2017-06-18 13:37:00 UTC
   bio says she is a journalist working for <a href="https://www.zdf.de/">ZDF</a>
   and that she is located in Mainz, Germany.</p>
 
-  <div class="screenshot">
-    <a class="fancybox" href="/images/geolocation2/miriam_steimer_profile.png"
-    title="Miriam's Twitter profile.">
-    <img class="thumbnail" src="/images/geolocation2/miriam_steimer_profile.png"
-    alt="" /></a>
-    <small>Miriam's Twitter profile.</small>
-  </div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/miriam_steimer_profile.png" class="image fit thumb">
+  <img src="/images/geolocation2/miriam_steimer_profile.png" alt="" /></a>
+  <h3>Miriam's Twitter profile.</h3>
+</article>
 
 <p>With a bit of Googling, I learned that ZDF has a big broadcasting center in
   Mainz with pretty interesting architecture:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/geolocation2/maps_zdf_sendezentrum.png"
-  title="Google Maps view of the ZDF Sendezentrum in Mainz.">
-  <img class="thumbnail" src="/images/geolocation2/maps_zdf_sendezentrum_thumbnail.png"
-  alt="" /></a>
-  <small>Google Maps view of the <em>ZDF Sendezentrum</em> in Mainz.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/maps_zdf_sendezentrum.png" class="image fit thumb">
+  <img src="/images/geolocation2/maps_zdf_sendezentrum_thumbnail.png" alt="" /></a>
+  <h3>Google Maps view of the <em>ZDF Sendezentrum</em> in Mainz.</h3>
+</article>
 
 <p>I went back to the picture from Miriam's tweet to see if I could find
   anything that I could use to confirm that the picture was taken somewhere at
@@ -85,25 +75,21 @@ created_at: 2017-06-18 13:37:00 UTC
   facade with something that looks like shiny metallic plates is visible in the
   background. This could be useful for determining the location more precisely.</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/geolocation2/wherearewe_background.jpg"
-  title="A building facade in the background.">
-  <img class="thumbnail" src="/images/geolocation2/wherearewe_background_thumbnail.jpg"
-  alt="" /></a>
-  <small>A building facade in the background.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/wherearewe_background.jpg" class="image fit thumb">
+  <img src="/images/geolocation2/wherearewe_background_thumbnail.jpg" alt="" /></a>
+  <h3>A building facade in the background.</h3>
+</article>
 
 <p>Scrolling through the Google Image search results for <em>ZDF sendezentrum</em>
   made me come across a <a href="http://www.jobundfit.de/uploads/pics/Cafeteria_SZ_1_Ausgabelinie.jpg">picture</a>
   of something that looked very much like a cafeteria:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/geolocation2/casino_cafeteria.jpg"
-  title="Casino Cafeteria.">
-  <img class="thumbnail" src="/images/geolocation2/casino_cafeteria.jpg"
-  alt="" /></a>
-  <small>Casino Cafeteria.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/casino_cafeteria.jpg" class="image fit thumb">
+  <img src="/images/geolocation2/casino_cafeteria.jpg" alt="" /></a>
+  <h3>Casino Cafeteria.</h3>
+</article>
 
 <p>The picture was found on a <a href="http://www.jobundfit.de/qualitaetsstandard/zertifizierung/praxispaten/zdf-casino-mainz.html">web page</a>
   about <em>ZDF-Casino GmbH</em> catering company getting the
@@ -111,13 +97,11 @@ created_at: 2017-06-18 13:37:00 UTC
   <em>ZDF sendezentrum casino</em> I came across another valuable
   <a href="http://www.stepmap.de/landkarte/sendezentrum-zdf-1267042.png">image</a>:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/geolocation2/sendezentrum_map.png"
-  title="A map of the ZDF Sendezentrum with the Casino building.">
-  <img class="thumbnail" src="/images/geolocation2/sendezentrum_map_thumbnail.png"
-  alt="" /></a>
-  <small>A map of the ZDF Sendezentrum with the Casino building.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/sendezentrum_map.png" class="image fit thumb">
+  <img src="/images/geolocation2/sendezentrum_map_thumbnail.png" alt="" /></a>
+  <h3>A map of the ZDF Sendezentrum with the Casino building.</h3>
+</article>
 
 <p>Knowing that the name of the ZDF cafeteria is called Casino and having a map
   of the area was good and all, but I still needed to find a building with the
@@ -125,13 +109,11 @@ created_at: 2017-06-18 13:37:00 UTC
   Image search results and came across another <a href="http://realschule-plus-langenlonsheim.com/s/cc_images/cache_2477728153.JPG">picture</a>
   that caught my attention:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/geolocation2/sendezentrum_entrance.jpg"
-  title="Entrance to the ZDF Sendezentrum with directions and an interesting building in the background.">
-  <img class="thumbnail" src="/images/geolocation2/sendezentrum_entrance_thumbnail.png"
-  alt="" /></a>
-  <small>Entrance to the ZDF Sendezentrum with directions and an interesting building in the background.</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/sendezentrum_entrance.jpg" class="image fit thumb">
+  <img src="/images/geolocation2/sendezentrum_entrance_thumbnail.png" alt="" /></a>
+  <h3>Entrance to the ZDF Sendezentrum with directions and an interesting building in the background.</h3>
+</article>
 
 <p>The picture showed what looks like the entrance to the ZDF Sendezentrum with
   directions to the <em>Kasinogebäude</em> and more importantly, a building in

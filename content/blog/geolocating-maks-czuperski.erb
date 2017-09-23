@@ -4,8 +4,6 @@ kind: article
 created_at: 2017-01-18 13:37:00 UTC
 ---
 
-<%= render '/post_head.html', :post => item %>
-
 <p>The other day while checking my Twitter feed, I came across an interesting
 retweet from <a href="https://twitter.com/EliotHiggins">Elliot Higgins</a>, the
 founder of <a href="https://www.bellingcat.com/">Bellingcat</a>:</p>
@@ -20,13 +18,10 @@ couldn't let it pass. Here is how I geolocated Maks Czuperski:</p>
 <em>Copy Image Address</em> gave me a good 2048x1536px version where details
 could be picked out.</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/geolocation/whereami.png"
-  title="The picture from Maks Czuperski's tweet">
-  <img class="thumbnail" src="/images/geolocation/whereami_thumbnail.png"
-  alt="" /></a>
-  <small>The picture from Maks Czuperski's tweet (<a href="/images/geolocation/whereami_large.png" target="_blank">click here</a> for high resolution)</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation/whereami.png" class="image fit thumb"><img src="/images/geolocation/whereami_thumbnail.png" alt="" /></a>
+  <h3>The picture from Maks Czuperski's tweet.</h3>
+</article>
 
 <p>The location did not look familiar to me and there were no famous buildings in
 the background, readable street signs or other easy wins to quickly figure out
@@ -42,13 +37,10 @@ there either.</p>
 give me a hint to its location. This was when I spotted the store signs in the
 lower right corner of the image:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/geolocation/whereami_zoom.png"
-  title="An Expert store is visible in the image">
-  <img class="thumbnail" src="/images/geolocation/whereami_zoom_thumbnail.png"
-  alt="" /></a>
-  <small>An Expert store is visible in the image</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation/whereami_zoom.png" class="image fit thumb"><img src="/images/geolocation/whereami_zoom_thumbnail.png" alt="" /></a>
+  <h3>An Expert store is visible in the image.</h3>
+</article>
 
 <p>I was lucky to know that Expert is an electronics store from my time living
 in Denmark and, assuming that Expert only has stores in Denmark, I wondered if it
@@ -90,13 +82,10 @@ more to find any other details I could pair with this information and pretty
 quickly spotted a sign for a place called "Gold Mountain" right next to the
 Expert shop:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/geolocation/whereami_gold_mountain.png"
-  title="A place called Gold Mountain next to Expert">
-  <img class="thumbnail" src="/images/geolocation/whereami_gold_mountain_thumbnail.png"
-  alt="" /></a>
-  <small>A place called Gold Mountain next to Expert</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation/whereami_gold_mountain.png" class="image fit thumb"><img src="/images/geolocation/whereami_gold_mountain_thumbnail.png" alt="" /></a>
+  <h3>A place called Gold Mountain next to Expert.</h3>
+</article>
 
 <p>I had never heard of Gold Mountain before, and it was my hope that
 this would be a bit more unique than Expert. I made the assumption that he was
@@ -104,13 +93,10 @@ most likely in a capital city, or at least a bigger city, in one of the countrie
 where Expert operates. My plan was now to perform a search for <em>Gold Mountain</em>
 combined with the capital city name for each country in the list:</p>
 
-<div class="screenshot">
-  <a class="fancybox" href="/images/geolocation/google_gold_mountain.png"
-  title="Googling for <em>Gold Mountain</em> in Oslo">
-  <img class="thumbnail" src="/images/geolocation/google_gold_mountain_thumbnail.png"
-  alt="" /></a>
-  <small>Googling for <em>Gold Mountain</em> in Oslo</small>
-</div>
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation/google_gold_mountain.png" class="image fit thumb"><img src="/images/geolocation/google_gold_mountain_thumbnail.png" alt="" /></a>
+  <h3>Googling for <em>Gold Mountain</em> in Oslo.</h3>
+</article>
 
 <p>Bingo! I was lucky that the capital for the first country in the list yielded
 a result that looked like the right place. The Google Streetview image to the
