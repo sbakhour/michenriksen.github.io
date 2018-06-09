@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+  <head>
+    <title>Detecting online investigations | michenriksen.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+    <meta name="generator" content="Nanoc 4.9.3">
+    <meta name="twitter:dnt" content="on">
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for michenriksen.com"  href="/blog/feed.xml" />
+  </head>
+
+  <body id="top">
+
+    <!-- Header -->
+    <header id="header">
+      <div class="inner">
+        <a href="/" class="image avatar"><img src="/images/avatar.jpg" alt="Michael Henriksen" /></a>
+        <h1><strong>Hi, I'm Michael.</strong> Security engineer,<br> internet sleuth and builder of tools.</h1>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+      <section id="blog_post">
+        <header class="major">
+          <h2>Detecting online investigations</h2>
+          <p>Posted November 14, 2016</p>
+        </header>
+
+        <p>I recently purchased a license for <a href="https://www.hunch.ly/">Hunchly</a>,
+an awesome tool for performing online investigations and general research on
+the web. The tool seems to be very popular among criminal investigators,
+journalists and OSINT geeks like me.</p>
+
+<p>For those who don't know, Hunchly is a tool that integrates directly into your
+browser through an extension to record and store local copies of every website
+you visit during an investigation. This is very convenient when doing OSINT
+investigations as you never loose anything, even if it gets deleted at a later
+time, and it makes it easy to trace your steps to how you found a particular
+piece of information.</p>
+
+<p>Another great feature of Hunchly is the ability to associate so-called <em>selectors</em>
+ to cases. Selectors are basically specific strings of interest that Hunchly will
+ then keep track of, and notify you whenever these selectors are found on
+ websites you visit. Selectors would normally be things like names, email
+ addresses, phone numbers, domains and anything else that is relevant to the
+ person or subject you are investigating.</p>
+
+ <p>Hunchly can be configured to automatically highlight these selectors on
+ websites when they are encountered. It is not enabled by default, but I'm sure
+ it's a very common setting to enable as it makes it very easy to spot the
+ relevant parts when browsing:</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/hunchly/hunchly_selectors.png" class="image fit thumb">
+  <img src="/images/hunchly/hunchly_selectors_thumbnail.png" alt="" /></a>
+  <h3>Highlighted selectors on the michenriksen.com frontpage.</h3>
+</article>
+
+<p>The above screenshot shows how my website's frontpage looks like when Hunchly
+is configured with the selectors: <em>Michael Henriksen</em>, <em>SoundCloud</em>
+and <em>Gitrob</em>. All occurrences of these strings are highlighted with a
+yellow background.</p>
+
+<p>Since Hunchly is highlighting the selectors by modifying the HTML before it's
+displayed in the browser, I started thinking about how a tech-savvy criminal,
+or anyone doing activities that would cause people to investigate them, such as
+an activist, could exploit this feature to detect the fact that someone is
+actively investigating them, and even get a sense of what the investigator knows
+and what they are interested in.</p>
+
+<p>This is how Hunchly highlights selector strings:</p>
+
+<pre>
+&lt;mark data-markjs=&quot;true&quot; class=&quot;hunchly&quot;&gt;selector text&lt;/mark&gt;
+</pre>
+
+<p>Hunchly wraps the selectors in <code>&lt;mark&gt;</code> tags with a unique
+class of <code>hunchly</code> which can be used to very accurately determine
+that Hunchly is being used on a website.</p>
+
+<p>Using a bit of Javascript, it is fairly easy for anyone worried about being
+investigated to detect it. Here is a small Proof Of Concept:</p>
+
+<script src="https://gist.github.com/michenriksen/3ace5b2714097d05ea18bc843b1719ad.js"></script>
+
+<p>On <strong>line 9 - 11</strong> a <code>&lt;div&gt;</code> element is defined
+with an ID of <code>canary</code>. This element would contain potential
+selectors that an investigator is likely to have entered into Hunchly. This
+should obviously not contain actual sensitive information that would help an
+investigator, but already publicly known information such as a name, public
+email address, etc. which is very likely for an investigator to have entered
+into Hunchly. It could also contain misinformation (e.g. a fake phone number)
+that has been planted on other websites. This would give the person under
+investigation an idea of where the investigator has already been, and what the
+investigator thinks they know about their target.</p>
+
+<p>On <strong>line 14</strong> the Javascript is looking for any
+<code>&lt;mark&gt;</code> tags with a <code>hunchly</code> class within the
+<code>#canary</code> div element. If no elements are found, it simply logs
+<em>No Hunchly selectors found in canary</em> to the console.</p>
+
+<p><strong>Line 18 - 22</strong> is what is being executed if a Hunchly selector
+highlight is found within the <code>#canary</code> element. It logs the total
+amount of selectors detected and then loops over each selector to log the text
+that was highlighted. It finishes off with popping up an alert box with
+<em>Hi there, investigator!</em> as the message.</p>
+
+<p>Instead of simply logging the information to the console, the script could
+easily be modified to call out to a backend script with Ajax or do something
+more aggressive like triggering a browser exploit, loading a <a href="http://beefproject.com/">BeEF</a>
+hook, redirecting them to Goatse or anything else to mess with the investigator.
+I'm sure you can come up with other fun things to do...</p>
+
+<p>Before I finish this post, I want emphasize that this is not meant as a diss
+to Hunchly, I think it's an excellent tool and would recommend it to anyone
+doing OSINT stuff. I simply felt like pointing out a potential problem with
+Hunchly's selector highlight feature, so if you are looking into someone who
+might be crazy enough to do stuff like this, you might want to turn that feature
+off. I don't know if this is the reason it is disabled as default, or if there
+is another reason. Anyways, check out <a href="https://www.hunch.ly">Hunchly</a>
+website or watch this <a href="https://www.youtube.com/watch?v=wA1ec0dPYhw">excellent video tutorial</a>
+if you want to know more about the tool.</p>
+
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <ul class="icons">
+          <li><a href="http://twitter.com/michenriksen" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="https://github.com/michenriksen" class="icon fa-github"><span class="label">Github</span></a></li>
+          <li><a href="http://www.google.com/recaptcha/mailhide/d?k=01ruyZjnr_0j93C6pDb-sKzg==&c=Ig6ahwxLjCsXrvzppBguH1QzDmuuWUe53Y2M_lJ5zxk=" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+          <li><a href="/blog/feed.xml" class="icon fa-rss"><span class="label">RSS feed</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; 2018 Michael Henriksen</li>
+          <li><a href="/about">about</a></li>
+          <li><a href="/blog">blog</a></li>
+          <li><a href="/projects">projects</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.poptrox.min.js"></script>
+    <script src="/assets/js/skel.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/assets/js/main.js"></script>
+    <script>
+      // Respect visitors who don't want to be tracked
+      if (!navigator.doNotTrack) {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-75318722-1', 'auto');
+        ga('send', 'pageview');
+      }
+    </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+  <head>
+    <title>A new version of Gitrob is out | michenriksen.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+    <meta name="generator" content="Nanoc 4.9.3">
+    <meta name="twitter:dnt" content="on">
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for michenriksen.com"  href="/blog/feed.xml" />
+  </head>
+
+  <body id="top">
+
+    <!-- Header -->
+    <header id="header">
+      <div class="inner">
+        <a href="/" class="image avatar"><img src="/images/avatar.jpg" alt="Michael Henriksen" /></a>
+        <h1><strong>Hi, I'm Michael.</strong> Security engineer,<br> internet sleuth and builder of tools.</h1>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+      <section id="blog_post">
+        <header class="major">
+          <h2>A new version of Gitrob is out</h2>
+          <p>Posted March 12, 2016</p>
+        </header>
+
+        <div class="alert alert-info" role="alert">
+  <strong>Heads up!</strong>
+  Gitrob has been totally rewritten in Go and is now much leaner and meaner. Read this blog post to get a general idea of the tool, and then read about <a href="/blog/gitrob-now-in-go/">the new version!</a>
+</div>
+
+<p>It's been more than a year since I released the initial version of Gitrob.
+I haven't had a whole lot of time to expand on it, but now a new and
+improved version is finally here with a bunch of new features requested by
+users.</p>
+
+<p>For those who don't know, Gitrob is a command line tool which can help
+organizations and security professionals find sensitive information lingering in
+publicly available files on GitHub. The tool will iterate over all public
+organization and member repositories and match filenames against a range of
+patterns for files that typically contain sensitive or dangerous information.
+Head over to <a href="/blog/gitrob-putting-the-open-source-in-osint/">my
+previous post</a> for more details and screenshots, but be sure to come back
+here to learn about the new features!</p>
+
+<p>The attention the tool has received has been way over my expectations and I
+want to thank everyone who has helped spread the word about it. With over 1100
+Stars on GitHub, a place in <a href="https://www.thoughtworks.com/radar/tools">
+ThoughtWorks' Tech Radar</a> and a mention in <a href="http://www.amazon.com/The-Hacker-Playbook-Practical-Penetration/dp/1512214566">The Hacker Playbook 2</a>, I will strive to maintain and build
+upon the tool more frequently from now on.</p>
+
+<h2>New features</h2>
+
+<h3>Analyze arbitrary amount of organizations and users</h3>
+<p>The old version of Gitrob only allowed to analyze a single GitHub organization
+at a time, but the new version allows to mix any number of organizations and
+users in a single assessment. This is great if a company has multiple
+organizations or if you have identified GitHub users who work for the target
+company but don't have their membership publicly visible.</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob_1_0_0/analyze.png" class="image fit thumb">
+  <img src="/images/gitrob_1_0_0/analyze_thumbnail.png" alt="" /></a>
+  <h3>Analyzing an organization and a user in one assessment.</h3>
+</article>
+
+<h3>Create and delete assessments in web interface</h3>
+<p>The new version has an improved web application which allows users to run a
+new assessment directly from the web interface. This is very convenient if
+Gitrob runs on a server accessible to multiple users as they no longer require
+command line access to manage assessments.</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob_1_0_0/new_assessment.png" class="image fit thumb">
+  <img src="/images/gitrob_1_0_0/new_assessment_thumbnail.png" alt="" /></a>
+  <h3>Creating a new assessments from the web interface.</h3>
+</article>
+
+<h3>GitHub Enterprise support</h3>
+<p>The new version makes it possible to run Gitrob against custom GitHub
+Enterprise installations by simply providing the location when creating a new
+assessment. <strong>Note:</strong> I unfortunately don't have access to a
+GitHub Enterprise installation, so I would appreciate if anyone could verify if
+this works and report any bugs!</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob_1_0_0/new_assessment_enterprise.png" class="image fit thumb">
+  <img src="/images/gitrob_1_0_0/new_assessment_enterprise_thumbnail.png" alt="" /></a>
+  <h3>Assessment against a custom GitHub Enterprise installation.</h3>
+</article>
+
+<h3>Compare assessments for continuous monitoring</h3>
+<p>In the old version it wasn't really easy to continuously monitor an
+organization, but the new version makes it possible to compare two assessments
+to quickly identify new or modified files, users and repositories.</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob_1_0_0/comparison.gif" class="image fit thumb">
+  <img src="/images/gitrob_1_0_0/comparison_thumbnail.png" alt="" /></a>
+  <h3>Comparing two assessments (Gif).</h3>
+</article>
+
+<h3>Highlighting of interesting values and detection of test files</h3>
+<p>In the small improvements category, the new version detects and
+highlights interesting values such as IP addresses, domains, tokens and email
+addresses when viewing a file's content. The new version will also
+attempt to determine if a file is likely test or mock related and make
+them less visible so they can easily be skipped.</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob_1_0_0/highlighting.gif" class="image fit thumb">
+  <img src="/images/gitrob_1_0_0/highlighting_thumbnail.png" alt="" /></a>
+  <h3>Highlighting of interesting values and dimming of test related files (Gif).</h3>
+</article>
+
+<h2>Under the hood</h2>
+<p>Apart from the new features, Gitrob v1.0.0 is pretty much a complete rewrite
+of the first version and some components have been switched out with better and
+more stable components. Gitrob now uses <a href="https://rubygems.org/gems/sequel">sequel</a>
+for database communication, <a href="https://rubygems.org/gems/github_api">github_api</a>
+for GitHub API interaction and <a href="https://rubygems.org/gems/thor">thor</a>
+for the command line interface. The switch to thor also means that the interface
+is a little different from the old version. <code>gitrob -o acme</code> is now
+<code>gitrob analyze acme</code>.</p>
+
+<h2>New file signatures</h2>
+<p>The new version also ships with a bunch of new signatures for files that
+might contain sensitive information:</p>
+
+<ul>
+  <li>SSH configuration files <small>(Might contain usernames and SSH hostnames)</small></li>
+  <li>PostgreSQL password files <small>(Contains PostgreSQL database credentials)</small></li>
+  <li><a href="https://aws.amazon.com/cli/">AWS CLI</a> credential files
+  <small>(Contains Amazon Web Services credentials)</small></li>
+  <li><a href="http://dayoneapp.com/">Day One</a> journal files <small>(Might
+  contain sensitive and personal information)</small></li>
+  <li><a href="https://maebert.github.io/jrnl/">jrnl</a> journal files <small>
+  (Might contain sensitive and personal information)</small></li>
+  <li><a href="https://github.com/pearkes/tugboat">Tugboat</a> configuration
+  files <small>(Might contain <a href="https://www.digitalocean.com/">DigitalOcean</a>
+  credentials)</small></li>
+  <li><a href="https://git-scm.com/docs/git-credential-store">git-credential-store</a>
+  configuration files <small>(Contains Git credentials)</small></li>
+  <li>Git configuration files <small>(Contains names, email addresses and
+  occasionally access tokens)</small></li>
+  <li><a href="https://www.chef.io/chef/">Chef</a> Knife configuration files
+  <small>(Might contain references to Chef servers)</small></li>
+  <li><a href="https://www.chef.io/chef/">Chef</a> private keys <small>(Gives
+  access to Chef servers)</small></li>
+  <li><a href="https://cpanel.com/">cPanel</a> backup ProFTPd credential files
+  <small>(Might contain FTP server credentials)</small></li>
+  <li><a href="https://robomongo.org/">Robomongo</a> configuration files
+  <small>(Might contain MongoDB database credentials)</small></li>
+  <li><a href="https://filezilla-project.org/">FileZilla</a> configuration files
+  <small>(Might contain FTP server credentials)</small></li>
+  <li><a href="https://filezilla-project.org/">FileZilla</a> recent servers files <small>(Might contain FTP server credentials)</small></li>
+  <li><a href="http://www.ventrilo.com/">Ventrilo</a> server configuration files
+  <small>(Might contain server credentials)</small></li>
+  <li><a href="https://www.docker.com/">Docker</a> configuration files
+  <small>(Might contain credentials for public or private Docker registries)</small></li>
+  <li><a href="https://www.npmjs.com/">NPM</a> configuration files <small>(Might
+  contain credentials for NPM registries)</small></li>
+</ul>
+
+<p>Check out <a href="https://github.com/michenriksen/gitrob/blob/master/signatures.json">signatures.json</a>
+for the full list of file signatures.</p>
+
+<p>If you have a good idea for a new signature, please don't hesitate to make a
+Pull Request or simply create an Issue with details and I will look into it!</p>
+
+<p>I am very excited about this release and I hope you are too. Hurry up and
+run Gitrob against your organization before someone else does! Installation and
+setup instructions can be found in the <a href="https://github.com/michenriksen/gitrob">README on GitHub</a>.</p>
+
+<p><strong>have fun and be responsible!</strong></p>
+
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <ul class="icons">
+          <li><a href="http://twitter.com/michenriksen" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="https://github.com/michenriksen" class="icon fa-github"><span class="label">Github</span></a></li>
+          <li><a href="http://www.google.com/recaptcha/mailhide/d?k=01ruyZjnr_0j93C6pDb-sKzg==&c=Ig6ahwxLjCsXrvzppBguH1QzDmuuWUe53Y2M_lJ5zxk=" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+          <li><a href="/blog/feed.xml" class="icon fa-rss"><span class="label">RSS feed</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; 2018 Michael Henriksen</li>
+          <li><a href="/about">about</a></li>
+          <li><a href="/blog">blog</a></li>
+          <li><a href="/projects">projects</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.poptrox.min.js"></script>
+    <script src="/assets/js/skel.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/assets/js/main.js"></script>
+    <script>
+      // Respect visitors who don't want to be tracked
+      if (!navigator.doNotTrack) {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-75318722-1', 'auto');
+        ga('send', 'pageview');
+      }
+    </script>
+
+  </body>
+
+</html>

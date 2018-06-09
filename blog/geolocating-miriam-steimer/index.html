@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+  <head>
+    <title>Geolocating Miriam Steimer | michenriksen.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+    <meta name="generator" content="Nanoc 4.9.3">
+    <meta name="twitter:dnt" content="on">
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for michenriksen.com"  href="/blog/feed.xml" />
+  </head>
+
+  <body id="top">
+
+    <!-- Header -->
+    <header id="header">
+      <div class="inner">
+        <a href="/" class="image avatar"><img src="/images/avatar.jpg" alt="Michael Henriksen" /></a>
+        <h1><strong>Hi, I'm Michael.</strong> Security engineer,<br> internet sleuth and builder of tools.</h1>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+      <section id="blog_post">
+        <header class="major">
+          <h2>Geolocating Miriam Steimer</h2>
+          <p>Posted June 18, 2017</p>
+        </header>
+
+        <p>If you have been following my blog, you might know that one of my weird
+  hobbies is to determine the location of where pictures were taken. My previous
+  post on <a href="/blog/geolocating-maks-czuperski/">Geolocating Maks Czuperski</a>
+  caught quite a lot of buzz, so I thought I would write up how I solved
+  another recent geolocation challenge, as it seems like you don't necessarily
+  need to catch the <a href="https://www.bellingcat.com/news/uk-and-europe/2015/10/08/mh17-the-open-source-evidence/">Russian Ministry of Defense lying</a>
+  about passenger planes being shot out of the sky for people to be interested in
+  this sort of stuff.</p>
+
+<p>It all started when I saw a Retweet from <a href="https://twitter.com/trbrtc/status/869518189738299394">Christiaan Triebert</a>
+  on my Twitter feed:</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/trbrtc">@trbrtc</a> where are we? <a href="https://twitter.com/hashtag/geolocation?src=hash">#geolocation</a> <a href="https://twitter.com/hashtag/itsagame?src=hash">#itsagame</a> <a href="https://t.co/g8JDCgw9Af">pic.twitter.com/g8JDCgw9Af</a></p>&mdash; miriam steimer (@miriamsteimer) <a href="https://twitter.com/miriamsteimer/status/869506933933387777">May 30, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>The tweet from <a href="https://twitter.com/miriamsteimer">Miriam Steimer</a>
+  seemed to challenge Christiaan Triebert to find out where they were to come
+  join them for lunch. It didn't exactly look like a challenge meant for everyone
+  but I couldn't ignore it, and so I decided to give it a go...</p>
+
+<p>Right-clicking on the image and <em>Copy Image Address</em> gave me a pretty
+  high resolution version of the image where I could pick out details easier.</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/wherearewe.jpg" class="image fit thumb">
+  <img src="/images/geolocation2/wherearewe_thumbnail.jpg" alt="" /></a>
+  <h3>The picture from Miriam Steimer's tweet.</h3>
+</article>
+
+<p>My first idea was to comb the picture for any <em>easy-wins</em> such as the
+  name of the place on the yellow parasols in the background, the napkins on the
+  table or perhaps on the cutlery or plates, but no luck there. It did make me
+  a bit hungry though...</p>
+
+<p>One detail that I noticed was something that looked like a typical employee
+  badge hidden under the phone on the middle table:</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/wherearewe_zoom_badge.jpg" class="image fit thumb">
+  <img src="/images/geolocation2/wherearewe_zoom_badge_thumbnail.jpg" alt="" /></a>
+  <h3>A possible employee badge under the phone.</h3>
+</article>
+
+<p>The badge made me think that maybe they were having lunch at a work cafeteria
+  or similar, so time to figure out where Miriam works...</p>
+
+<p>Figuring out where she works was pretty straight-forward as her Twitter profile
+  bio says she is a journalist working for <a href="https://www.zdf.de/">ZDF</a>
+  and that she is located in Mainz, Germany.</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/miriam_steimer_profile.png" class="image fit thumb">
+  <img src="/images/geolocation2/miriam_steimer_profile.png" alt="" /></a>
+  <h3>Miriam's Twitter profile.</h3>
+</article>
+
+<p>With a bit of Googling, I learned that ZDF has a big broadcasting center in
+  Mainz with pretty interesting architecture:</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/maps_zdf_sendezentrum.png" class="image fit thumb">
+  <img src="/images/geolocation2/maps_zdf_sendezentrum_thumbnail.png" alt="" /></a>
+  <h3>Google Maps view of the <em>ZDF Sendezentrum</em> in Mainz.</h3>
+</article>
+
+<p>I went back to the picture from Miriam's tweet to see if I could find
+  anything that I could use to confirm that the picture was taken somewhere at
+  the ZDF broadcasting center. After a bit of staring, I noticed that a building
+  facade with something that looks like shiny metallic plates is visible in the
+  background. This could be useful for determining the location more precisely.</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/wherearewe_background.jpg" class="image fit thumb">
+  <img src="/images/geolocation2/wherearewe_background_thumbnail.jpg" alt="" /></a>
+  <h3>A building facade in the background.</h3>
+</article>
+
+<p>Scrolling through the Google Image search results for <em>ZDF sendezentrum</em>
+  made me come across a <a href="http://www.jobundfit.de/uploads/pics/Cafeteria_SZ_1_Ausgabelinie.jpg">picture</a>
+  of something that looked very much like a cafeteria:</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/casino_cafeteria.jpg" class="image fit thumb">
+  <img src="/images/geolocation2/casino_cafeteria.jpg" alt="" /></a>
+  <h3>Casino Cafeteria.</h3>
+</article>
+
+<p>The picture was found on a <a href="http://www.jobundfit.de/qualitaetsstandard/zertifizierung/praxispaten/zdf-casino-mainz.html">web page</a>
+  about <em>ZDF-Casino GmbH</em> catering company getting the
+  <em>JOB &amp; Fit</em> certification. Doing another Google Image search for
+  <em>ZDF sendezentrum casino</em> I came across another valuable
+  <a href="http://www.stepmap.de/landkarte/sendezentrum-zdf-1267042.png">image</a>:</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/sendezentrum_map.png" class="image fit thumb">
+  <img src="/images/geolocation2/sendezentrum_map_thumbnail.png" alt="" /></a>
+  <h3>A map of the ZDF Sendezentrum with the Casino building.</h3>
+</article>
+
+<p>Knowing that the name of the ZDF cafeteria is called Casino and having a map
+  of the area was good and all, but I still needed to find a building with the
+  facade that is visible in the picture. I scrolled through some more Google
+  Image search results and came across another <a href="http://realschule-plus-langenlonsheim.com/s/cc_images/cache_2477728153.JPG">picture</a>
+  that caught my attention:</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/geolocation2/sendezentrum_entrance.jpg" class="image fit thumb">
+  <img src="/images/geolocation2/sendezentrum_entrance_thumbnail.png" alt="" /></a>
+  <h3>Entrance to the ZDF Sendezentrum with directions and an interesting building in the background.</h3>
+</article>
+
+<p>The picture showed what looks like the entrance to the ZDF Sendezentrum with
+  directions to the <em>Kasinogebäude</em> and more importantly, a building in
+  the background with what looks like the same kind of shiny metallic plates.</p>
+
+<p>I wrote a quick tweet to Miriam and Christiaan to figure out if I was going
+  in the right direction:</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Hey, random twitterer here, looks like it could be somewhere near the &quot;Kasinogebäude&quot;?</p>&mdash; Michael Henriksen (@michenriksen) <a href="https://twitter.com/michenriksen/status/869559591419478016">May 30, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>After a while, Christiaan replied:</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Correct! Should not be hard to find the exact location now — good luck ;-)</p>&mdash; Christiaan Triebert (@trbrtc) <a href="https://twitter.com/trbrtc/status/869563326073888768">May 30, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Perfect! I used the map picture I found earlier to align my Google Maps view
+  and tweeted my guess:</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Somewhere in the red square, perhaps? <a href="https://t.co/c3HH84PPbs">pic.twitter.com/c3HH84PPbs</a></p>&mdash; Michael Henriksen (@michenriksen) <a href="https://twitter.com/michenriksen/status/869567449733234690">May 30, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Christiaan replied again with their exact location:</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Nice, very close, just a few more meters northward! <a href="https://t.co/qo9zk86IAH">pic.twitter.com/qo9zk86IAH</a></p>&mdash; Christiaan Triebert (@trbrtc) <a href="https://twitter.com/trbrtc/status/869584650490040320">May 30, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>My guess was a bit off as Christiaan's very nice breakdown shows, but I think
+  I was close enough to call it a win. The lesson learned was to remember to
+  always look at a place from all angles in Google Maps. Had I done that, I
+  would have seen the yellow parasols hiding among the trees in the green area.</p>
+
+<p>Christiaan later challenged me with another picture which I also solved,
+  but I won't go over how I did it, I will leave it as a challenge for you to
+  find out. Maybe you can figure out how I did it. Let me know how you solved it. :)
+</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">If you feel like it, try this one. It is near (1-50km radius) of the other photo, to give a hint. <a href="https://t.co/Kutw2sK6wP">pic.twitter.com/Kutw2sK6wP</a></p>&mdash; Christiaan Triebert (@trbrtc) <a href="https://twitter.com/trbrtc/status/869587705251983361">May 30, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>If you enjoyed this post, maybe you are also interested in reading my
+  previous post about how I <a href="/blog/geolocating-maks-czuperski/">Geolocated Maks Czuperski</a>.
+  If you would like to try out geolocation yourself, I would recommend keeping
+  an eye on the <a href="https://twitter.com/search?f=tweets&vertical=default&q=%23DigitalSherlocks&src=typd">#DigitalSherlocks</a>
+  hashtag on Twitter as people often tweet these sorts of challenges using that
+  hashtag.</p>
+
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <ul class="icons">
+          <li><a href="http://twitter.com/michenriksen" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="https://github.com/michenriksen" class="icon fa-github"><span class="label">Github</span></a></li>
+          <li><a href="http://www.google.com/recaptcha/mailhide/d?k=01ruyZjnr_0j93C6pDb-sKzg==&c=Ig6ahwxLjCsXrvzppBguH1QzDmuuWUe53Y2M_lJ5zxk=" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+          <li><a href="/blog/feed.xml" class="icon fa-rss"><span class="label">RSS feed</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; 2018 Michael Henriksen</li>
+          <li><a href="/about">about</a></li>
+          <li><a href="/blog">blog</a></li>
+          <li><a href="/projects">projects</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.poptrox.min.js"></script>
+    <script src="/assets/js/skel.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/assets/js/main.js"></script>
+    <script>
+      // Respect visitors who don't want to be tracked
+      if (!navigator.doNotTrack) {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-75318722-1', 'auto');
+        ga('send', 'pageview');
+      }
+    </script>
+
+  </body>
+
+</html>
