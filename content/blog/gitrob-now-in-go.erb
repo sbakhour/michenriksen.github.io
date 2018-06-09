@@ -1,0 +1,86 @@
+---
+title: "Gitrob: Now in Go"
+kind: article
+created_at: 2018-06-09 13:37:00 UTC
+---
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/gitrob/gopher_full.png" class="image fit thumb" style="background: none">
+  <img src="/images/gitrob/gopher_full.png" alt="" /></a>
+  <h3>Say hello to Gitrob Gopher!</h3>
+</article>
+
+<p>I'm happy to announce that a new version of Gitrob has been released. This time it's a complete rewrite from Ruby to the amazing <a href="https://golang.org/">Go programming language</a>!</p>
+
+<p>The old Ruby version of Gitrob got messy and was neglected by me because I got tired of the code. I decided it was time for a rethink and rewrite of the project. As I had been planning to pick up Go as my next programming language I thought it would be interesting to make a lean and mean Go implementation. This turned out to be a pretty amazing decision!</p>
+
+<h2>What's new</h2>
+
+<h3>Uncover interesting files in old commits</h3>
+
+<p>The new Gitrob drills deep into the commit history of a repository to surface files that might contain interesting or sensitive information. The default commit depth is 500 commits which strikes a good balance between speed and coverage, but it can of course be adjusted with a command line option. That old .bash_history file that was accidentally pushed and deleted 300 commits ago? Gitrob will find it.</p>
+
+<h3>No more PostgreSQL database</h3>
+
+<p>There is no longer any need to install and set up a PostgreSQL server to use Gitrob. The new version simply serves up findings directly from memory, but can also be saved to special session files which can later be loaded again and shared with other people. The session files contain a simple JSON document which is also ideal for parsing and integration with other tools and systems.</p>
+
+<h3>No more Ruby dependency hell</h3>
+
+<p>A big pain point for many users of the old Gitrob was trouble with dealing with Ruby and Ruby gems. Because the new version is written in Go, the whole tool is now a simple compiled binary that runs on Linux, Mac and Windows. No more fighting with RVM and native extensions that won't compile!</p>
+
+<h3>New, sleek web UI</h3>
+
+<p>The web UI for browsing and analysing Gitrob findings is now faster, prettier and more robust with <a href="https://getbootstrap.com/">Bootstrap</a> and <a href="http://backbonejs.org/">Backbone.js</a>.</p>
+
+<h3>A mascot!</h3>
+
+<p><a href="https://twitter.com/KentGruber">Kent Gruber</a> was so generous to make me a Gopher mascot for Gitrob! The idea for a Gitrob Gopher was totally stolen from the <a href="https://www.bettercap.org/">Bettercap</a>, but I hope it will help me maintain the project. :)</p>
+
+<h3>General simplification</h3>
+
+<p>A big reason why the old Gitrob got messy and bloated was because I tried to make the tool do too much. The purpose of the new Gitrob is to only find and present interesting files and nothing more. I hope that this will help keep the project more sane and healthy.</p>
+
+<h2>Pictures</h2>
+
+<div class="row">
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob_2_0_0/start.png" class="image fit thumb">
+    <img src="/images/gitrob_2_0_0/start_thumbnail.png" alt="" /></a>
+    <p>Starting a new Gitrob assessment</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob_2_0_0/stats.png" class="image fit thumb">
+    <img src="/images/gitrob_2_0_0/stats_thumbnail.png" alt="" /></a>
+    <p>Assessment stats and findings in Web UI</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob_2_0_0/finding.png" class="image fit thumb">
+    <img src="/images/gitrob_2_0_0/finding_thumbnail.png" alt="" /></a>
+    <p>Viewing a finding. Interesting things are highlighted</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/gitrob_2_0_0/hexdump.png" class="image fit thumb">
+    <img src="/images/gitrob_2_0_0/hexdump_thumbnail.png" alt="" /></a>
+    <p>A hexdump view is supported for binary files</p>
+  </article>
+</div>
+
+<h2>Installation</h2>
+
+<p>Installing Gitrob is super easy. Simply head over to the project on Github and <a href="https://github.com/michenriksen/gitrob/releases">download a pre-compiled binary</a> for your operating system. If you have Go set up, you can also get the latest version with <em>go get github.com/michenriksen/gitrob</em>.</p>
+
+<p>Read more about installation and setup in the project <a href="https://github.com/michenriksen/gitrob#installation">README</a>.</p>
+
+<h2>Thanks</h2>
+
+<p>Thanks to Simone '<a href="https://twitter.com/evilsocket">evilsocket</a>' Margaritelli for his amazing, open source Go projects. I have learned a lot by looking at his code and a lot of Gitrob's code and structure is inspired by his projects.</p>
+
+<p>I would also like to say thanks to <a href="https://twitter.com/KentGruber">Kent Gruber</a> for being awesome and for spending time on making the Gitrob Gopher for me!</p>
+
+<p>If you're interested in coding and security, you should follow both of these fine people on Twitter!</p>
+
+<h2>Helping out</h2>
+
+<p>I hope you will try out the new version of Gitrob and that you will find it useful! Should you find any bugs or other weirdness, then please <a href="https://github.com/michenriksen/gitrob/issues/new">open an issue</a> on Github! As this is my first real project in Go, I have likely committed several Go crimes in the code and feedback is appreciated, but please go easy on me! ;)</p>
+
+<img src="/images/gitrob/gopher_head.png" alt="" style="width:100px;margin:100px auto 0px auto;display:block" />
