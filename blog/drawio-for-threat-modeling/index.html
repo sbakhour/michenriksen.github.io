@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+  <head>
+    <title>Draw.io for threat modeling | michenriksen.com</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
+    <meta name="generator" content="Nanoc 4.9.3">
+    <meta name="twitter:dnt" content="on">
+    <link rel="alternate" type="application/atom+xml" title="RSS Feed for michenriksen.com"  href="/blog/feed.xml" />
+  </head>
+
+  <body id="top">
+
+    <!-- Header -->
+    <header id="header">
+      <div class="inner">
+        <a href="/" class="image avatar"><img src="/images/avatar.jpg" alt="Michael Henriksen" /></a>
+        <h1><strong>Hi, I'm Michael.</strong> Security engineer,<br> internet sleuth and builder of tools.</h1>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+      <section id="blog_post">
+        <header class="major">
+          <h2>Draw.io for threat modeling</h2>
+          <p>Posted October 05, 2018</p>
+        </header>
+
+        <p>I've spent a good amount of time lately trying to find a good tool for threat model diagramming. I defined a couple of requirements and started assessing what was out there:</p>
+
+<ul>
+  <li><strong>Support for Data Flow Diagrams (DFD) and Attack Trees</strong>: I believe these are essential for threat modeling. Sequence Diagrams are a plus too.</li>
+  <li><strong>Enjoyable and easy to use</strong>: It must be easy to create diagrams and no weird bugs to make it clunky or cumbersome to work with. This is important, not only for my own sanity, but also for getting developers to adopt the practice. If you don't provide them with a good tool, they probably won't do it.</li>
+  <li><strong>Free and cross-platform</strong>: It must be free and work on Windows, Mac and Linux. If the tool only works on Windows or you have to juggle licenses, it makes it much harder to introduce threat modeling in a business.</li>
+  <li><strong>Not web or "Cloud" based</strong>: It should feel like a proper desktop application and storage should be good old local files. Cloud (a.k.a. someone else's computer) can be nice, but not for threat modeling. File based storage also makes it easy to check the diagrams into version control and make it live next to the code.</li>
+</ul>
+
+<p>I checked out quite a lot of different tools but none of them fulfilled the requirements. Many didn't have elements for DFDs and Attack Trees, <a href="https://www.microsoft.com/en-us/download/details.aspx?id=49168">Microsoft Threat Modeling Tool</a> only runs on Windows, <a href="https://threatmodeler.com/">Threat Modeler</a> is web based, <a href="https://threatdragon.org/">Threat Dragon</a> felt awkward to work with, and <a href="http://dia-installer.de/index.html.en">Dia</a> is old, clunky and buggy.</p>
+
+<p>I was pretty dissapointed with what I found, so I scratched my own itch and started work on a new Electron based app which I hoped would be the perfect fit for me, and hopefully many others. Doing the initial research for this, I came across the <a href="https://github.com/jgraph/mxgraph">mxgraph</a> project which seemed to be the perfect core diagramming component. Then I saw that it was used as part of a tool called <a href="https://www.draw.io/">draw.io</a> and that luckily turned out to be the perfect fit, with a bit of configuration and customization...</p>
+
+<h2>DFD and Attack Trees in draw.io</h2>
+
+<p>Draw.io doesn't come with dedicated libraries for DFDs and attack trees, but it has all the elements. They are just spread across several different libraries. After playing around with the tool for a bit, I discovered that it's super easy to customize elements and adding them to custom libraries which can be exported for easy reuse. I created two new libraries with all you need for DFD and attack trees and <a href="https://github.com/michenriksen/drawio-threatmodeling">put them up on Github</a>.</p>
+
+<h2>Data Flow Diagrams</h2>
+
+<p>These are the elements available in the <em>dfd.xml</em> library:</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/drawio/dfd-elements.png" class="image fit thumb" style="background: none">
+  <img src="/images/drawio/dfd-elements_thumbnail.png" alt="" /></a>
+  <h3>All elements in the DFD library.</h3>
+</article>
+
+<p>Apart from the classic DFD elements, the library also contains a note element, labels for assets, threat actors, security controls, and convenient tables for documenting them directly in the diagram.</p>
+
+<p>To show you how it all works together, I've created a diagram of a simple, ficticious system:</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/drawio/dfd.png" class="image fit thumb" style="background: none">
+  <img src="/images/drawio/dfd_thumbnail.png" alt="" /></a>
+  <h3>A DFD of a simple, ficticious system.</h3>
+</article>
+
+<h2>Attack Trees</h2>
+
+<p>These are the elements available in the <em>attack-tree.xml</em> library:</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/drawio/attack-tree-elements.png" class="image fit thumb" style="background: none">
+  <img src="/images/drawio/attack-tree-elements_thumbnail.png" alt="" /></a>
+  <h3>All elements in the DFD library.</h3>
+</article>
+
+<p>To show you how these work together, I have recreated the classic <em>Open Safe</em> attack tree:</p>
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/drawio/attack-tree.png" class="image fit thumb" style="background: none">
+  <img src="/images/drawio/attack-tree_thumbnail.png" alt="" /></a>
+  <h3>An attack tree exploring how to open a safe.</h3>
+</article>
+
+<h2>Getting set up</h2>
+
+<p>Getting draw.io set up for threat modeling is very easy:</p>
+
+<ol>
+  <li><a href="https://about.draw.io/integrations/#integrations_offline">Download</a> and install draw.io for your operating system</li>
+  <li>Clone or download the <a href="https://github.com/michenriksen/drawio-threatmodeling">Github repository</a></li>
+  <li>Open draw.io application and create a new blank diagram</li>
+  <li>Click the <em>File</em> menu and then click <em>Open Library...</em></li>
+  <li>Navigate to where you put the Github repository and open one of the XML files</li>
+</ol>
+
+<p>Congratulations! You are now ready to threat model. To make draw.io even nicer, I can recommend turning on the <em>Minimal</em> theme by clicking the <em>Extras</em> menu and selecting the Minimal theme. This makes the UI cleaner and gives more space for actual diagramming.</p>
+
+<p>I hope that you will find this helpful and make it easier and more joyful to threat model for you and your team.</p>
+
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <ul class="icons">
+          <li><a href="http://twitter.com/michenriksen" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="https://github.com/michenriksen" class="icon fa-github"><span class="label">Github</span></a></li>
+          <li><a href="http://www.google.com/recaptcha/mailhide/d?k=01ruyZjnr_0j93C6pDb-sKzg==&c=Ig6ahwxLjCsXrvzppBguH1QzDmuuWUe53Y2M_lJ5zxk=" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+          <li><a href="/blog/feed.xml" class="icon fa-rss"><span class="label">RSS feed</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; 2018 Michael Henriksen</li>
+          <li><a href="/about">about</a></li>
+          <li><a href="/blog">blog</a></li>
+          <li><a href="/projects">projects</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.poptrox.min.js"></script>
+    <script src="/assets/js/skel.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/assets/js/main.js"></script>
+    <script>
+      // Respect visitors who don't want to be tracked
+      if (!navigator.doNotTrack) {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-75318722-1', 'auto');
+        ga('send', 'pageview');
+      }
+    </script>
+
+  </body>
+
+</html>

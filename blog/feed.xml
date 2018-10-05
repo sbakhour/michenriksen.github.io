@@ -2,13 +2,91 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://michenriksen.com/">
   <id>http://michenriksen.com/</id>
   <title>michenriksen.com</title>
-  <updated>2018-06-09T13:37:00Z</updated>
+  <updated>2018-10-05T13:37:00Z</updated>
   <link rel="alternate" href="http://michenriksen.com/"/>
   <link rel="self" href="http://michenriksen.com/blog/feed.xml"/>
   <author>
     <name>Michael Henriksen</name>
     <uri>http://michenriksen.com/</uri>
   </author>
+  <entry>
+    <id>tag:michenriksen.com,2018-10-05:/blog/drawio-for-threat-modeling/</id>
+    <title type="html">Draw.io for threat modeling</title>
+    <published>2018-10-05T13:37:00Z</published>
+    <updated>2018-10-05T13:37:00Z</updated>
+    <link rel="alternate" href="http://michenriksen.com/blog/drawio-for-threat-modeling/"/>
+    <content type="html">&lt;p&gt;I've spent a good amount of time lately trying to find a good tool for threat model diagramming. I defined a couple of requirements and started assessing what was out there:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Support for Data Flow Diagrams (DFD) and Attack Trees&lt;/strong&gt;: I believe these are essential for threat modeling. Sequence Diagrams are a plus too.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Enjoyable and easy to use&lt;/strong&gt;: It must be easy to create diagrams and no weird bugs to make it clunky or cumbersome to work with. This is important, not only for my own sanity, but also for getting developers to adopt the practice. If you don't provide them with a good tool, they probably won't do it.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Free and cross-platform&lt;/strong&gt;: It must be free and work on Windows, Mac and Linux. If the tool only works on Windows or you have to juggle licenses, it makes it much harder to introduce threat modeling in a business.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Not web or "Cloud" based&lt;/strong&gt;: It should feel like a proper desktop application and storage should be good old local files. Cloud (a.k.a. someone else's computer) can be nice, but not for threat modeling. File based storage also makes it easy to check the diagrams into version control and make it live next to the code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I checked out quite a lot of different tools but none of them fulfilled the requirements. Many didn't have elements for DFDs and Attack Trees, &lt;a href="https://www.microsoft.com/en-us/download/details.aspx?id=49168"&gt;Microsoft Threat Modeling Tool&lt;/a&gt; only runs on Windows, &lt;a href="https://threatmodeler.com/"&gt;Threat Modeler&lt;/a&gt; is web based, &lt;a href="https://threatdragon.org/"&gt;Threat Dragon&lt;/a&gt; felt awkward to work with, and &lt;a href="http://dia-installer.de/index.html.en"&gt;Dia&lt;/a&gt; is old, clunky and buggy.&lt;/p&gt;
+
+&lt;p&gt;I was pretty dissapointed with what I found, so I scratched my own itch and started work on a new Electron based app which I hoped would be the perfect fit for me, and hopefully many others. Doing the initial research for this, I came across the &lt;a href="https://github.com/jgraph/mxgraph"&gt;mxgraph&lt;/a&gt; project which seemed to be the perfect core diagramming component. Then I saw that it was used as part of a tool called &lt;a href="https://www.draw.io/"&gt;draw.io&lt;/a&gt; and that luckily turned out to be the perfect fit, with a bit of configuration and customization...&lt;/p&gt;
+
+&lt;h2&gt;DFD and Attack Trees in draw.io&lt;/h2&gt;
+
+&lt;p&gt;Draw.io doesn't come with dedicated libraries for DFDs and attack trees, but it has all the elements. They are just spread across several different libraries. After playing around with the tool for a bit, I discovered that it's super easy to customize elements and adding them to custom libraries which can be exported for easy reuse. I created two new libraries with all you need for DFD and attack trees and &lt;a href="https://github.com/michenriksen/drawio-threatmodeling"&gt;put them up on Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Data Flow Diagrams&lt;/h2&gt;
+
+&lt;p&gt;These are the elements available in the &lt;em&gt;dfd.xml&lt;/em&gt; library:&lt;/p&gt;
+
+&lt;article class="6u 12u$(xsmall) poptrox center"&gt;
+  &lt;a href="/images/drawio/dfd-elements.png" class="image fit thumb" style="background: none"&gt;
+  &lt;img src="/images/drawio/dfd-elements_thumbnail.png" alt="" /&gt;&lt;/a&gt;
+  &lt;h3&gt;All elements in the DFD library.&lt;/h3&gt;
+&lt;/article&gt;
+
+&lt;p&gt;Apart from the classic DFD elements, the library also contains a note element, labels for assets, threat actors, security controls, and convenient tables for documenting them directly in the diagram.&lt;/p&gt;
+
+&lt;p&gt;To show you how it all works together, I've created a diagram of a simple, ficticious system:&lt;/p&gt;
+
+&lt;article class="6u 12u$(xsmall) poptrox center"&gt;
+  &lt;a href="/images/drawio/dfd.png" class="image fit thumb" style="background: none"&gt;
+  &lt;img src="/images/drawio/dfd_thumbnail.png" alt="" /&gt;&lt;/a&gt;
+  &lt;h3&gt;A DFD of a simple, ficticious system.&lt;/h3&gt;
+&lt;/article&gt;
+
+&lt;h2&gt;Attack Trees&lt;/h2&gt;
+
+&lt;p&gt;These are the elements available in the &lt;em&gt;attack-tree.xml&lt;/em&gt; library:&lt;/p&gt;
+
+&lt;article class="6u 12u$(xsmall) poptrox center"&gt;
+  &lt;a href="/images/drawio/attack-tree-elements.png" class="image fit thumb" style="background: none"&gt;
+  &lt;img src="/images/drawio/attack-tree-elements_thumbnail.png" alt="" /&gt;&lt;/a&gt;
+  &lt;h3&gt;All elements in the DFD library.&lt;/h3&gt;
+&lt;/article&gt;
+
+&lt;p&gt;To show you how these work together, I have recreated the classic &lt;em&gt;Open Safe&lt;/em&gt; attack tree:&lt;/p&gt;
+
+&lt;article class="6u 12u$(xsmall) poptrox center"&gt;
+  &lt;a href="/images/drawio/attack-tree.png" class="image fit thumb" style="background: none"&gt;
+  &lt;img src="/images/drawio/attack-tree_thumbnail.png" alt="" /&gt;&lt;/a&gt;
+  &lt;h3&gt;An attack tree exploring how to open a safe.&lt;/h3&gt;
+&lt;/article&gt;
+
+&lt;h2&gt;Getting set up&lt;/h2&gt;
+
+&lt;p&gt;Getting draw.io set up for threat modeling is very easy:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href="https://about.draw.io/integrations/#integrations_offline"&gt;Download&lt;/a&gt; and install draw.io for your operating system&lt;/li&gt;
+  &lt;li&gt;Clone or download the &lt;a href="https://github.com/michenriksen/drawio-threatmodeling"&gt;Github repository&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Open draw.io application and create a new blank diagram&lt;/li&gt;
+  &lt;li&gt;Click the &lt;em&gt;File&lt;/em&gt; menu and then click &lt;em&gt;Open Library...&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Navigate to where you put the Github repository and open one of the XML files&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Congratulations! You are now ready to threat model. To make draw.io even nicer, I can recommend turning on the &lt;em&gt;Minimal&lt;/em&gt; theme by clicking the &lt;em&gt;Extras&lt;/em&gt; menu and selecting the Minimal theme. This makes the UI cleaner and gives more space for actual diagramming.&lt;/p&gt;
+
+&lt;p&gt;I hope that you will find this helpful and make it easier and more joyful to threat model for you and your team.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:michenriksen.com,2018-06-09:/blog/gitrob-now-in-go/</id>
     <title type="html">Gitrob: Now in Go</title>
