@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://michenriksen.com/">
-  <id>http://michenriksen.com/</id>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://michenriksen.com/">
+  <id>https://michenriksen.com/</id>
   <title>michenriksen.com</title>
   <updated>2018-10-05T13:37:00Z</updated>
-  <link rel="alternate" href="http://michenriksen.com/"/>
-  <link rel="self" href="http://michenriksen.com/blog/feed.xml"/>
+  <link rel="alternate" href="https://michenriksen.com/"/>
+  <link rel="self" href="https://michenriksen.com/blog/feed.xml"/>
   <author>
     <name>Michael Henriksen</name>
     <uri>http://michenriksen.com/</uri>
@@ -14,7 +14,7 @@
     <title type="html">Draw.io for threat modeling</title>
     <published>2018-10-05T13:37:00Z</published>
     <updated>2018-10-05T13:37:00Z</updated>
-    <link rel="alternate" href="http://michenriksen.com/blog/drawio-for-threat-modeling/"/>
+    <link rel="alternate" href="https://michenriksen.com/blog/drawio-for-threat-modeling/"/>
     <content type="html">&lt;p&gt;I've spent a good amount of time lately trying to find a good tool for threat model diagramming. I defined a couple of requirements and started assessing what was out there:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -92,7 +92,7 @@
     <title type="html">Gitrob: Now in Go</title>
     <published>2018-06-09T13:37:00Z</published>
     <updated>2018-06-09T13:37:00Z</updated>
-    <link rel="alternate" href="http://michenriksen.com/blog/gitrob-now-in-go/"/>
+    <link rel="alternate" href="https://michenriksen.com/blog/gitrob-now-in-go/"/>
     <content type="html">&lt;article class="6u 12u$(xsmall) poptrox center"&gt;
   &lt;a href="/images/gitrob/gopher_full.png" class="image fit thumb" style="background: none"&gt;
   &lt;img src="/images/gitrob/gopher_full.png" alt="" /&gt;&lt;/a&gt;
@@ -180,7 +180,7 @@
     <title type="html">Subdomain takeover detection with AQUATONE</title>
     <published>2017-07-21T13:37:00Z</published>
     <updated>2017-07-21T13:37:00Z</updated>
-    <link rel="alternate" href="http://michenriksen.com/blog/subdomain-takeover-detection-with-aquatone/"/>
+    <link rel="alternate" href="https://michenriksen.com/blog/subdomain-takeover-detection-with-aquatone/"/>
     <content type="html">&lt;p&gt;Hostile subdomain takeover is a very prevalent and potentially critical
 security issue. It's a well-known attack vector and easy to exploit, and should
 therefore be taken seriously.&lt;/p&gt;
@@ -299,7 +299,7 @@ across the web:&lt;/p&gt;
     <title type="html">Geolocating Miriam Steimer</title>
     <published>2017-06-18T13:37:00Z</published>
     <updated>2017-06-18T13:37:00Z</updated>
-    <link rel="alternate" href="http://michenriksen.com/blog/geolocating-miriam-steimer/"/>
+    <link rel="alternate" href="https://michenriksen.com/blog/geolocating-miriam-steimer/"/>
     <content type="html">&lt;p&gt;If you have been following my blog, you might know that one of my weird
   hobbies is to determine the location of where pictures were taken. My previous
   post on &lt;a href="/blog/geolocating-maks-czuperski/"&gt;Geolocating Maks Czuperski&lt;/a&gt;
@@ -463,7 +463,7 @@ across the web:&lt;/p&gt;
     <title type="html">AQUATONE: A tool for domain flyovers</title>
     <published>2017-06-17T13:37:00Z</published>
     <updated>2017-06-17T13:37:00Z</updated>
-    <link rel="alternate" href="http://michenriksen.com/blog/aquatone-tool-for-domain-flyovers/"/>
+    <link rel="alternate" href="https://michenriksen.com/blog/aquatone-tool-for-domain-flyovers/"/>
     <content type="html">&lt;article class="6u 12u$(xsmall) poptrox center"&gt;
   &lt;a href="/images/aquatone/u2.jpg" class="image fit thumb"&gt;
   &lt;img src="/images/aquatone/u2.jpg" alt="" /&gt;&lt;/a&gt;
@@ -960,7 +960,7 @@ TLS 1.0 not vulnerable to heartbleed
     <title type="html">Geolocating Maks Czuperski</title>
     <published>2017-01-18T13:37:00Z</published>
     <updated>2017-01-18T13:37:00Z</updated>
-    <link rel="alternate" href="http://michenriksen.com/blog/geolocating-maks-czuperski/"/>
+    <link rel="alternate" href="https://michenriksen.com/blog/geolocating-maks-czuperski/"/>
     <content type="html">&lt;p&gt;The other day while checking my Twitter feed, I came across an interesting
 retweet from &lt;a href="https://twitter.com/EliotHiggins"&gt;Elliot Higgins&lt;/a&gt;, the
 founder of &lt;a href="https://www.bellingcat.com/"&gt;Bellingcat&lt;/a&gt;:&lt;/p&gt;
@@ -1101,7 +1101,7 @@ him. Pretty cool!&lt;/p&gt;
     <title type="html">Detecting online investigations</title>
     <published>2016-11-14T13:37:00Z</published>
     <updated>2016-11-14T13:37:00Z</updated>
-    <link rel="alternate" href="http://michenriksen.com/blog/detecting-online-investigations/"/>
+    <link rel="alternate" href="https://michenriksen.com/blog/detecting-online-investigations/"/>
     <content type="html">&lt;p&gt;I recently purchased a license for &lt;a href="https://www.hunch.ly/"&gt;Hunchly&lt;/a&gt;,
 an awesome tool for performing online investigations and general research on
 the web. The tool seems to be very popular among criminal investigators,
@@ -1203,7 +1203,7 @@ if you want to know more about the tool.&lt;/p&gt;
     <title type="html">Birdwatcher: Data analysis and OSINT framework for Twitter</title>
     <published>2016-10-14T13:37:00Z</published>
     <updated>2016-10-14T13:37:00Z</updated>
-    <link rel="alternate" href="http://michenriksen.com/blog/birdwatcher-twitter-osint-framework/"/>
+    <link rel="alternate" href="https://michenriksen.com/blog/birdwatcher-twitter-osint-framework/"/>
     <content type="html">&lt;p&gt;Yes, here again with another tool release. This time it's an
 &lt;a href="https://en.wikipedia.org/wiki/Open-source_intelligence"&gt;OSINT&lt;/a&gt;
 framework for a different social network &amp;mdash;
@@ -1692,7 +1692,7 @@ module.&lt;/p&gt;
     <title type="html">A new version of Gitrob is out</title>
     <published>2016-03-12T13:37:00Z</published>
     <updated>2016-03-12T13:37:00Z</updated>
-    <link rel="alternate" href="http://michenriksen.com/blog/new-version-of-gitrob-is-out/"/>
+    <link rel="alternate" href="https://michenriksen.com/blog/new-version-of-gitrob-is-out/"/>
     <content type="html">&lt;div class="alert alert-info" role="alert"&gt;
   &lt;strong&gt;Heads up!&lt;/strong&gt;
   Gitrob has been totally rewritten in Go and is now much leaner and meaner. Read this blog post to get a general idea of the tool, and then read about &lt;a href="/blog/gitrob-now-in-go/"&gt;the new version!&lt;/a&gt;
@@ -1849,7 +1849,7 @@ setup instructions can be found in the &lt;a href="https://github.com/michenriks
     <title type="html">Gitrob: Putting the Open Source in OSINT</title>
     <published>2015-01-12T13:37:00Z</published>
     <updated>2015-01-12T13:37:00Z</updated>
-    <link rel="alternate" href="http://michenriksen.com/blog/gitrob-putting-the-open-source-in-osint/"/>
+    <link rel="alternate" href="https://michenriksen.com/blog/gitrob-putting-the-open-source-in-osint/"/>
     <content type="html">&lt;div class="alert alert-info" role="alert"&gt;
   &lt;strong&gt;Heads up!&lt;/strong&gt;
   Gitrob has been totally rewritten in Go and is now much leaner and meaner. Read this blog post to get a general idea of the tool, and then read about &lt;a href="/blog/gitrob-now-in-go/"&gt;the new version!&lt;/a&gt;
