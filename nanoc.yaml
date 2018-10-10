@@ -89,7 +89,7 @@ checks:
     #   exclude_files: ['blog/page']
     exclude_files: []
 
-base_url: http://michenriksen.com
+base_url: https://michenriksen.com
 author_uri: http://michenriksen.com/
 twitter_url: http://twitter.com/michenriksen
 github_url: https://github.com/michenriksen
