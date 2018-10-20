@@ -6,6 +6,7 @@ passthrough "/assets/fonts/*"
 passthrough "/assets/css/images/*"
 passthrough "/assets/js/ie/*.htc"
 passthrough "/images/**/*"
+passthrough "/tools/**/*"
 
 compile "/assets/css/**/*.css" do
   filter :rainpress
