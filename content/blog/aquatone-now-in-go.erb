@@ -1,0 +1,100 @@
+---
+title: "AQUATONE: Now in Go"
+kind: article
+created_at: 2018-11-04 13:37:00 UTC
+---
+
+<article class="6u 12u$(xsmall) poptrox center">
+  <a href="/images/aquatone/u22.png" class="image fit thumb">
+  <img src="/images/aquatone/u22.png" alt="" /></a>
+  <h3>The Lockheed U-2 reconnaissance aircraft was given the codename Aquatone.</h3>
+</article>
+
+<br />
+<br />
+
+<p>I'm continuing my quest to move my open source tools from Ruby to Go. Earlier this year, I released the <a href="/blog/gitrob-now-in-go/">Go rewrite of Gitrob</a> and now I'm happy to announce the release of a new and streamlined version of Aquatone!</p>
+
+<h2>What's Changed</h2>
+
+<p>Quite a lot has changed in the new version. The two major themes of the rewrite is simplification and ease-of-use:</p>
+
+<h3>No DNS enumeration</h3>
+
+<p>Yes, Aquatone is now completely focused on screenshotting and reporting. I know a lot of people used Aquatone for its DNS enumeration capabilities and it was definitely very good at that when it was released. Now other tools are doing a much better job of this, so I decided to leave it out of the new Aquatone, and instead make it easy to use it with your tool of choice.</p>
+
+<h3>Single command</h3>
+
+<p>Because Aquatone is now focused on one thing, it is now a single <em>aquatone</em> command. No more aquatone-discover, aquatone-scan and aquatone-gather.</p>
+
+<h3>Screenshotting with Chrome</h3>
+
+<p>The old version used <a href="http://www.nightmarejs.org/">Nightmare</a> for taking screenshots. This was very unreliable and introduced a big dependency with Node.js. The new version uses either Google Chrome or Chromium in headless mode to take screenshots, which is much more reliable.</p>
+
+<h2>What's New</h2>
+
+<h3>Input Agnostic</h3>
+
+<p>Aquatone works by having input piped to it. It doesn't care about what this data looks like as IPs, hostnames, domains and URLs will be extracted from the input with regular expression matching. The output of all your tools can be piped to Aquatone and it should work fine, but you can of course clean it up with the usual terminal commands if needed.</p>
+
+<h3>Support for Nmap/Masscan XML</h3>
+
+<p>If you have an XML output file from either <a href="https://nmap.org/">Nmap</a> or <a href="https://github.com/robertdavidgraham/masscan">Masscan</a>, you can feed that to Aquatone too. Just add the <em>-nmap</em> flag to let Aquatone know to parse it properly.</p>
+
+<h3>Clustering of similar sites</h3>
+
+<p>Sometimes it could be quite painful to scroll through the HTML report from the old Aquatone to find that unusual, vulnerable-looking page. The new Aquatone will now cluster pages with similar HTML structure together to make it much easier to digest the report and find the interesting stuff.</p>
+
+<h2>Pictures</h2>
+
+<div class="row">
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/aquatone_1_3_2/start.png" class="image fit thumb">
+    <img src="/images/aquatone_1_3_2/start_thumbnail.png" alt="" /></a>
+    <p>Starting a scan of 500 random Yahoo subdomains</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/aquatone_1_3_2/finish.png" class="image fit thumb">
+    <img src="/images/aquatone_1_3_2/finish_thumbnail.png" alt="" /></a>
+    <p>Finished scanning and screenshotting 500 hosts in less than 5 minutes</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/aquatone_1_3_2/masscan.png" class="image fit thumb">
+    <img src="/images/aquatone_1_3_2/masscan_thumbnail.png" alt="" /></a>
+    <p>Feeding Aquatone with a Masscan XML report</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/aquatone_1_3_2/masscan_finish.png" class="image fit thumb">
+    <img src="/images/aquatone_1_3_2/masscan_finish_thumbnail.png" alt="" /></a>
+    <p>Processed 796 hosts from Masscan report in about 10 minutes</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/aquatone_1_3_2/masscan_report.png" class="image fit thumb">
+    <img src="/images/aquatone_1_3_2/masscan_report_thumbnail.png" alt="" /></a>
+    <p>Viewing report from Masscan results</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/aquatone_1_3_2/report_details.png" class="image fit thumb">
+    <img src="/images/aquatone_1_3_2/report_details_thumbnail.png" alt="" /></a>
+    <p>Viewing HTTP response headers for a page</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/aquatone_1_3_2/report.png" class="image fit thumb">
+    <img src="/images/aquatone_1_3_2/report_thumbnail.png" alt="" /></a>
+    <p>Viewing report of 500 random Yahoo domains</p>
+  </article>
+  <article class="6u 12u$(xsmall) poptrox">
+    <a href="/images/aquatone_1_3_2/report2.png" class="image fit thumb">
+    <img src="/images/aquatone_1_3_2/report2_thumbnail.png" alt="" /></a>
+    <p>Viewing report from Masscan results</p>
+  </article>
+</div>
+
+<h2>Installation</h2>
+
+<p>Installing Aquatone is super easy. Simply head over to the project on Github and <a href="https://github.com/michenriksen/aquatone/releases">download a pre-compiled binary</a> for your operating system.</p>
+
+<p>Read more about installation and setup in the project <a href="https://github.com/michenriksen/aquatone#installation">README</a>.</p>
+
+<p><strong>Enjoy!</strong></p>
+
